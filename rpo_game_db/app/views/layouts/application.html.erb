@@ -12,6 +12,7 @@
   <!-- if there is no current user active, provide login option -->
   <% if session[:user_id]==nil %>
   <%= link_to "Login", '/login' %>
+  <%= link_to "Create New User", new_user_path %>
   <% else %>
   <!-- if there is a current active user, provide option to view account -->
   <%= link_to "View Account", user_path(User.find(session[:user_id])) %>

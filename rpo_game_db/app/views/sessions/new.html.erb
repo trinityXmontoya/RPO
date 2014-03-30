@@ -13,5 +13,6 @@
 
   <% end %>
 
-
-<%= link_to "Create an Account", new_user_path %>
+<% if !flash[:notice] %>
+<%= link_to "Create New User", new_user_path %>
+<% end %>

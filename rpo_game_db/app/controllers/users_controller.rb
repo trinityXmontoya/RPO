@@ -42,9 +42,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if current_user == @user
       @user.update(user_params)
-      redirect_to @user
+        if @user.save
+        redirect_to @user
+        else
+        render 'edit'
+        end
     else
-      redirect_to users_path
+    flash[:notice] = "Sorry, you are not authorized to edit that user."
+    redirect_to users_path
     end
   end
 
