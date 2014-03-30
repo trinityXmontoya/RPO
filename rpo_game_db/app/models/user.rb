@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_and_belongs_to_many :games
-  has_and_belongs_to_many :characters
-  has_and_belongs_to_many :levels
+  has_and_belongs_to_many :games, :uniq=>true
+  has_and_belongs_to_many :characters, :uniq=>true
+  has_and_belongs_to_many :levels, :uniq=>true
 
   has_one :level
   has_one :character

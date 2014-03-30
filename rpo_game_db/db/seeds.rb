@@ -45,6 +45,7 @@
 # level4.characters << character2
 # level5.characters << character3
 # level6.characters << character1
+# character1.levels<<level1
 # character1.levels << level3
 # character2.levels << level2
 # character3.levels << level1
@@ -56,3 +57,4 @@
 # user2.levels << level1
 # user3.levels << level4
 # user3.levels << level5
+
