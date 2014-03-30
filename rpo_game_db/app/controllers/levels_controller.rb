@@ -1,5 +1,6 @@
 class LevelsController < ApplicationController
 
+
   def index
     @character=Character.find(params[:character_id])
     @user=User.find(session[:user_id])
@@ -11,6 +12,12 @@ class LevelsController < ApplicationController
       end
       return @levels
     end
+  end
+
+  def show
+    @user=User.find(session[:user_id])
+    @level=Level.find(params[:id])
+    @user.levels << @level
   end
 
 end

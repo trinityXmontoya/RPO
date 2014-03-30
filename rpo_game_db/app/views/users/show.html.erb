@@ -2,18 +2,21 @@
 
 <img src="<%= @user.photo_url %>">
 
-<h3>Score: ADD HERE</h3>
+<h3>Score: <%= @user.score %>pts</h3>
 <h3>Time Played: <%= @user.time_played %> hours</h3>
 
 
 <h3>Characters Played:</h3>
 <% @characters.each do |character| %>
 <%= character.name %>
-<img src="<%= character.photo_url %>">
-LEVEL REACHED AS THIS CHARACTER:  10%
 <br>
+<img src="<%= character.photo_url %>">
+<br>
+<% if current_user == @user %>
+  <%= @user.levels(character).length/7 * 100 %>% Completed
+  <% end %>
+  <br>
 <% end %>
-
 <h3>Games Played:</h3>
 
 <% @games.each do |game| %>

@@ -10,6 +10,13 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @games = @user.games
     @characters= @user.characters
+    score=0
+    @user.games.each do |game|
+      score+=game.points
+    end
+    @user.score=score
+    # is there a better way to do this?
+    @user.update_column(:score, score)
   end
 
   def new
