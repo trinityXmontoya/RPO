@@ -11,6 +11,7 @@
 
 # enemy1=Enemy.create(id:1,name:'Phiz',photo_url:'//placekitten.com/30/30',character_id:1)
 # enemy2=Enemy.create(id:2,name:'Sneez',photo_url:'//placekitten.com/30/30',character_id:2)
+# enemy3=Enemy.create(id:3,name:'Snooz',photo_url:'//placekitten.com/30/30',character_id:3)
 
 # friendship1=Friendship.create(user_id: 1, friend_id:2)
 
@@ -26,3 +27,18 @@
 
 # game1.levels<<level1
 # level1.games<<game2
+
+# level7=Level.create(id:7,name:'Level 1')
+# level8=Level.create(id:8,name:'Level 2')
+# level3=Level.create(id:3,name:'Level 3')
+# level4=Level.create(id:4,name:'Level 4')
+# level5=Level.create(id:5,name:'Level 5')
+# level6=Level.create(id:6,name:'Level 6')
+
+# level4.characters << character2
+# level5.characters << character3
+# level6.characters << character1
+# character1.levels << level3
+# character2.levels << level2
+# character3.levels << level1
+
