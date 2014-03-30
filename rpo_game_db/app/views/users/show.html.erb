@@ -2,7 +2,6 @@
 
 <img src="<%= @user.photo_url %>">
 
-
 <h3>Score: ADD HERE</h3>
 <h3>Time Played: <%= @user.time_played %> hours</h3>
 
@@ -28,4 +27,5 @@ LEVEL REACHED AS THIS CHARACTER:  10%
 <%= link_to "Delete this user", @user, method: :delete, data: {confirm: "Are you sure you wish to delete this user?\n All account information will be deleted and irretrievable."}  %>
 
 <%= link_to "Back to all users", users_path %>
+
 

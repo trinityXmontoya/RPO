@@ -20,6 +20,7 @@
   <% if session[:user_id]!=nil %>
   <%= link_to "Logout", '/logout' %>
   <% end %>
+
   <%= yield %>
 
 </body>

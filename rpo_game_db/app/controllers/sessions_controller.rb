@@ -12,16 +12,23 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: params[:email_or_username])
     end
 
+    if @user==nil
+      flash[:notice]="User does not exist. Double check login info or create new account."
+      redirect_to login_path
+    end
+
     if @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to @user
     else
       render 'new'
     end
+
   end
 
   def destroy
     session[:user_id]=nil
     redirect_to root_path
   end
+
 end

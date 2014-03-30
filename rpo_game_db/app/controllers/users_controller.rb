@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
   def create
     @user= User.new(user_params)
+    @user.score=0
+    @user.character_id=nil
+    @user.level_id=nil
     if @user.save
       redirect_to @user
     else
@@ -41,18 +44,19 @@ class UsersController < ApplicationController
       @user.update(user_params)
       redirect_to @user
     else
-      redirect_to root_path
+      redirect_to users_path
     end
   end
 
   def destroy
     @user=User.find(params[:id])
     if current_user == @user
+    session[@user.id]=nil
     @user.destroy
     redirect_to users_path
     else
     flash[:notice] = "Sorry, you are not authorized to delete that user."
-     redirect_to users_path
+    redirect_to users_path
     end
   end
 

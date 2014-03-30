@@ -15,8 +15,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     if current_user == nil
+      flash[:notice] = "You must login to perform that action."
       redirect_to login_path
     end
-    end
+  end
 
 end
