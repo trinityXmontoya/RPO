@@ -1,7 +1,11 @@
 <h1> Login </h1>
 
+
+
+
 <%= flash[:notice] %>
 <%= form_tag sessions_path do %>
+
   <!-- As shown in sessions controller, user has option to login with email or username -->
   <%= label_tag :email_or_username %>
   <%= text_field_tag :email_or_username %>

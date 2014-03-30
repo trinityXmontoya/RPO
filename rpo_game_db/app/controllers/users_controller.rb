@@ -65,13 +65,6 @@ class UsersController < ApplicationController
     end
   end
 
-  helper_method :errors_for
-  def errors_for(attribute)
-    if @user.errors[attribute].present?
-      @user.errors.full_messages_for(attribute).join("\n")
-    end
-  end
-
 
   private
   def user_params

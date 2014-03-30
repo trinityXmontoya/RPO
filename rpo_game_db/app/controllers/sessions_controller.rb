@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 
   def new
+
   end
 
   def create
@@ -12,14 +13,13 @@ class SessionsController < ApplicationController
       @user = User.find_by(username: params[:email_or_username])
     end
 
-
+    # if the user exists and is authenticated, create session
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to @user
-    elsif @user==nil
-      flash[:notice]="User does not exist. Double check login info or create new account"
-      redirect_to login_path
+    # if the user info provided does not exist, redirect to login
     else
+      flash[:notice]="USER NOT FOUND. Double check login info or create new account"
       render 'new'
     end
 

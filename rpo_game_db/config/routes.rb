@@ -8,7 +8,7 @@ get '/logout', to: 'sessions#destroy'
 get '/welcome', to: 'main#welcome'
 
 resources :characters, only: :index, shallow:true do
-  resources :levels, only: :index
+  resources :levels, only: [:index, :show]
 end
 
 

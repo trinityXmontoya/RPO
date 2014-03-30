@@ -1,3 +1,5 @@
 <% @levels.each do |level| %>
-<%= level.name %>
+
+<%= link_to level.name, level_path(level.id) %>
+<br>
 <% end %>

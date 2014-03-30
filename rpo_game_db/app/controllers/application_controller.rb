@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  helper_method :errors_for
+  def errors_for(attribute)
+    if @user.errors[attribute].present?
+      @user.errors.full_messages_for(attribute).join("\n")
+    end
+  end
 
   helper_method :current_user
   def current_user
