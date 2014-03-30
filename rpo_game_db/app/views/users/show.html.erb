@@ -4,14 +4,15 @@
 
 
 <h3>Score: ADD HERE</h3>
-<h3>Time Played: ADD HERE</h3>
+<h3>Time Played: <%= @user.time_played %> hours</h3>
 
 
 <h3>Characters Played:</h3>
 <% @characters.each do |character| %>
 <%= character.name %>
-<%= character.photo_url %>
-LEVEL REACHED AS THIS CHARACTER
+<img src="<%= character.photo_url %>">
+LEVEL REACHED AS THIS CHARACTER:  10%
+<br>
 <% end %>
 
 <h3>Games Played:</h3>
@@ -19,6 +20,6 @@ LEVEL REACHED AS THIS CHARACTER
 <% @games.each do |game| %>
 
 <%= game.name %>
-<%= game.photo_url %>
+<img src="<%= game.photo_url %>">
 <% end %>
 

@@ -1,8 +1,8 @@
 class CharacterLevel < ActiveRecord::Migration
   def change
-    create_table "characters_levels", force: true do |t|
-      t.references :characters
-      t.references :levels
+    create_table "characters_levels", force: true, id: false do |t|
+      t.references :character
+      t.references :level
     end
   end
 end

@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 20140329180134) do
     t.string "skill"
   end
 
-  create_table "characters_levels", force: true do |t|
-    t.integer "characters_id"
-    t.integer "levels_id"
+  create_table "characters_levels", id: false, force: true do |t|
+    t.integer "character_id"
+    t.integer "level_id"
   end
 
-  create_table "characters_users", force: true do |t|
-    t.integer "characters_id"
-    t.integer "users_id"
+  create_table "characters_users", id: false, force: true do |t|
+    t.integer "character_id"
+    t.integer "user_id"
   end
 
   create_table "enemies", force: true do |t|
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20140329180134) do
     t.integer "points"
   end
 
-  create_table "games_levels", force: true do |t|
-    t.integer "games_id"
-    t.integer "levels_id"
+  create_table "games_levels", id: false, force: true do |t|
+    t.integer "game_id"
+    t.integer "level_id"
   end
 
-  create_table "games_users", force: true do |t|
-    t.integer "games_id"
-    t.integer "users_id"
+  create_table "games_users", id: false, force: true do |t|
+    t.integer "game_id"
+    t.integer "user_id"
   end
 
   create_table "levels", force: true do |t|
