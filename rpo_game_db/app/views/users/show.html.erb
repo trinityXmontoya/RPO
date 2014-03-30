@@ -23,3 +23,9 @@ LEVEL REACHED AS THIS CHARACTER:  10%
 <img src="<%= game.photo_url %>">
 <% end %>
 
+
+<%= link_to "Edit this user", edit_user_path(@user) %>
+<%= link_to "Delete this user", @user, method: :delete, data: {confirm: "Are you sure you wish to delete this user?\n All account information will be deleted and irretrievable."}  %>
+
+<%= link_to "Back to all users", users_path %>
+

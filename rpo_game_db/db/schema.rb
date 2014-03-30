@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140329180134) do
     t.string  "photo_url"
     t.integer "time_played"
     t.integer "level_id"
+    t.integer "score"
   end
 
 end

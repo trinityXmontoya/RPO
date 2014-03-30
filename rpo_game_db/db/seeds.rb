@@ -1,6 +1,6 @@
-# user1=User.create(id:1,username:'snoopdog',email:'snoopdog@gmail.com', password:'snoopy7', password_confirmation:'snoopy7',photo_url: "//placekitten.com/30/30",time_played:10,character_id:1,level_id:1)
-# user2=User.create(id:2,username:'snooplion',email:'snooplion@gmail.com', password:'lion7', password_confirmation:'lion7',photo_url: "//placekitten.com/30/30",time_played:10,character_id:2,level_id:2)
-# user3=User.create(id:3,username:'jamba',email:'jamba@gmail.com', password:'lion7', password_confirmation:'lion7',photo_url: "//placekitten.com/30/30",time_played:20,character_id:3,level_id:3)
+# user1=User.create(id:1,username:'snoopdog',email:'snoopdog@gmail.com', password:'snoopy7', password_confirmation:'snoopy7',photo_url: "//placekitten.com/30/30",time_played:10,character_id:1,level_id:1,score:10)
+# user2=User.create(id:2,username:'snooplion',email:'snooplion@gmail.com', password:'lion7', password_confirmation:'lion7',photo_url: "//placekitten.com/30/30",time_played:10,character_id:2,level_id:2,score:0)
+# user3=User.create(id:3,username:'jamba',email:'jamba@gmail.com', password:'lion7', password_confirmation:'lion7',photo_url: "//placekitten.com/30/30",time_played:20,character_id:3,level_id:3,score:200)
 
 # level1=Level.create(id:1,name:"Dog City")
 # level2=Level.create(id:2,name:"Lion City")

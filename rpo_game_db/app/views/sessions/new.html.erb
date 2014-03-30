@@ -1,8 +1,9 @@
 <h1> Login </h1>
 
 <%= form_tag sessions_path do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
+  <!-- As shown in sessions controller, user has option to login with email or username -->
+  <%= label_tag :email_or_username %>
+  <%= text_field_tag :email_or_username %>
 
   <%= label_tag :password %>
   <%= password_field_tag :password %>

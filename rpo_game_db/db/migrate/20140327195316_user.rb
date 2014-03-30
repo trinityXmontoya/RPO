@@ -8,6 +8,7 @@ class User < ActiveRecord::Migration
       t.string :photo_url
       t.integer :time_played
       t.references :level
+      t.integer :score
     end
   end
 end

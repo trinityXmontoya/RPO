@@ -1,0 +1,38 @@
+<%= form_for @user do |f| %>
+
+<% if @user.errors.any? %>
+Please correct the following errors:
+<br>
+<br>
+<% end %>
+
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= errors_for :username %>
+  <br>
+  <br>
+  <%= f.label :email %><br>
+  <%= f.text_field :email %>
+  <%= errors_for :email %>
+  <br>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= errors_for :password %>
+  <br>
+  <br>
+  <%= f.label :confirm_password %>
+  <%= f.password_field :password_confirmation %>
+  <%= errors_for :password_confirmation %>
+  <br>
+  <br>
+  <%= f.label :profile_photo %>
+  <%= f.text_field :photo_url %>
+  <%= errors_for :photo_url %>
+  <br>
+  <br>
+
+  <%= f.submit "Create User" %>
+
+<% end %>

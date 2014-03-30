@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     if current_user == @user
       render 'edit'
     else
-      redirect_to root_path
+      flash[:notice] = "Sorry, you are not authorized to edit that user."
+      redirect_to users_path
     end
   end
 
@@ -46,13 +47,26 @@ class UsersController < ApplicationController
 
   def destroy
     @user=User.find(params[:id])
+    if current_user == @user
     @user.destroy
     redirect_to users_path
+    else
+    flash[:notice] = "Sorry, you are not authorized to delete that user."
+     redirect_to users_path
+    end
   end
+
+  helper_method :errors_for
+  def errors_for(attribute)
+    if @user.errors[attribute].present?
+      @user.errors.full_messages_for(attribute).join("\n")
+    end
+  end
+
 
   private
   def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :photo_url, :character_id, :time_played, :level_id)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :photo_url)
   end
 
 end
