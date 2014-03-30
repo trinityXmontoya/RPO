@@ -16,12 +16,9 @@
   <%= link_to "Create New User", new_user_path %>
   <% else %>
   <br>
-  <!-- if there is a current active user, provide option to view account -->
+  <!-- if there is a current active user, provide option to view account logout or start game -->
+  <%= link_to "READY PLAYER ONE", welcome_path %>
   <%= link_to "View Account", user_path(User.find(session[:user_id])) %>
-  <% end %>
-  <br>
-  <!-- if there is a current active user, provide option to logout -->
-  <% if session[:user_id]!=nil %>
   <%= link_to "Logout", '/logout' %>
   <% end %>
   <br>

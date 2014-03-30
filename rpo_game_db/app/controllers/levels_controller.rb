@@ -3,8 +3,9 @@ class LevelsController < ApplicationController
   def index
     @character=Character.find(params[:character_id])
     @user=User.find(session[:user_id])
+    @levels=[]
     @character.levels.each do |level|
-      if current_user.levels.includes? level
+      if current_user.levels.include? level
         @levels << level
       end
       return @levels
