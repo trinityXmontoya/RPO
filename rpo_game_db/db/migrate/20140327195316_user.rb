@@ -7,7 +7,7 @@ class User < ActiveRecord::Migration
       t.references :character
       t.string :photo_url
       t.integer :time_played
-      t.references :levels
+      t.references :level
     end
   end
 end

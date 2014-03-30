@@ -1,0 +1,24 @@
+<h1><%= @user.username %></h1>
+
+<img src="<%= @user.photo_url %>">
+
+
+<h3>Score: ADD HERE</h3>
+<h3>Time Played: ADD HERE</h3>
+
+
+<h3>Characters Played:</h3>
+<% @characters.each do |character| %>
+<%= character.name %>
+<%= character.photo_url %>
+LEVEL REACHED AS THIS CHARACTER
+<% end %>
+
+<h3>Games Played:</h3>
+
+<% @games.each do |game| %>
+
+<%= game.name %>
+<%= game.photo_url %>
+<% end %>
+

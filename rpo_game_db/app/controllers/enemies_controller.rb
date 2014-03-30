@@ -1,3 +1,5 @@
 class EnemiesController < ApplicationController
 
+
+
 end
