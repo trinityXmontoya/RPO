@@ -98,9 +98,23 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def add_comment
+     @user=User.find(params[:user_id])
+     @author=current_user
+     Comment.create(
+      :user=>@user,
+      :author_id=>@author.id,
+      :content=>:content)
+     redirect_to user_path(@user)
+  end
+
   private
   def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :photo_url)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:author,:user,:content)
   end
 
 end

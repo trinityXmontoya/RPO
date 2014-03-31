@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   :class_name => "Blockee"
   has_many :blocked_users, :through => :blockees, dependent: :destroy
 
+  has_many :comments, :foreign_key => "user_id"
+
   validates(:username, :email, :password, :photo_url, presence: true )
   validates(:username, :email, :character_id, :level_id, uniqueness: true)
   validates(:password, length: {minimum: 5})
@@ -59,7 +61,6 @@ class User < ActiveRecord::Base
   def unblock(other_user)
     blocked_users.delete(other_user)
   end
-
 
 end
 

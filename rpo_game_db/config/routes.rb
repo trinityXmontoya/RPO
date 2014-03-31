@@ -11,12 +11,17 @@ get '/logout', to: 'sessions#destroy'
 
 get '/scoreboard', to: 'users#index'
 
-resources :users
+resources :users do
+  post '/follow', to: 'users#follow'
+  post '/unfollow', to: 'users#unfollow'
+  post '/block', to: 'users#block'
+  post '/unblock',to: 'users#unblock'
+  post '/add_comment',to: 'users#add_comment'
+  post '/remove_comment',to: 'users#remove_comment'
+end
 
-post 'users/:id/follow', to: 'users#follow', as: :follow
-post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
-post 'users/:id/block', to: 'users#block', as: :block
-post 'users/:id/unblock',to: 'users#unblock',as: :unblock
+
+
 
 resources :characters, only: :index, shallow:true do
   resources :levels, only: [:index, :show], :shallow => false do

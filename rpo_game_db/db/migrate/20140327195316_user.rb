@@ -9,6 +9,7 @@ class User < ActiveRecord::Migration
       t.integer :time_played
       t.references :level
       t.integer :score
+      t.timestamps
     end
   end
 end
