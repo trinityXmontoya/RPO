@@ -37,10 +37,16 @@ class User < ActiveRecord::Base
     return (level_total.length/7.0*100).round
   end
 
-  #add a user to your "friend" list
-  def add_friend(other_user)
-    self.friendships << other_user
+  #follow other user
+  def follow(other_user)
+     friends << other_user
   end
+
+  #unfollow other user
+  def unfollow(other_user)
+    friends.delete(other_user)
+  end
+
 
 end
 

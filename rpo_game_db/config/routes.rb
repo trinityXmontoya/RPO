@@ -13,14 +13,17 @@ get '/scoreboard', to: 'users#index'
 
 resources :users
 
-get 'levels/:id/end', to: 'levels#end', :as=>:level_end
-get 'levels/:id/:choice', to: 'levels#begin', :as=>:level_begin
+post 'users/:id/follow', to: 'users#follow', as: :follow
+post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
 
 resources :characters, only: :index, shallow:true do
   resources :levels, only: [:index, :show], :shallow => false do
     resources :games, only: :show
   end
 end
+
+get 'levels/:id/end', to: 'levels#end', as: :level_end
+get 'levels/:id/:choice', to: 'levels#begin', as: :level_begin
 
 
 end

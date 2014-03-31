@@ -70,6 +70,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @user=User.find(params[:id])
+    current_user.follow(@user)
+    flash[:notice]="You are now following #{@user.username}!"
+    redirect_to user_path(@user)
+  end
+
+  def unfollow
+    @user=User.find(params[:id])
+    current_user.unfollow(@user)
+    flash[:notice]="You have unfollowed #{@user.username}"
+    redirect_to user_path(@user)
+  end
+
   private
   def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :photo_url)

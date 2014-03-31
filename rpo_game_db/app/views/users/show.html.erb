@@ -1,9 +1,23 @@
+<%= flash[:notice] %>
+
 <%= @user.username %></h1>
 
 <img src="<%= @user.photo_url %>">
 
-<% form_tag %>
-<%  %>
+
+<% if current_user != @user && !(current_user.friends.include? @user) %>
+  <%= form_tag(follow_path(@user)) do%>
+  <%= submit_tag ("Follow")  %>
+  <% end %>
+<% end %>
+
+<% if current_user.friends.include? @user %>
+<%= form_tag(unfollow_path(@user)) do %>
+<%= submit_tag ("Unfollow") %>
+<% end %>
+<% end %>
+
+
 
 <h3>Score: <%= @user.score %>pts</h3>
 
@@ -20,14 +34,13 @@
     <%= @user.character_percent_complete(character) %>% Completed
 <% end %>
 
-      <%= link_to "Resume Game", character_levels_path(character) %>
+<%= link_to "Resume Game", character_levels_path(character) %>
       <br>
       <br>
 <% end %>
 <h3>Games Played:</h3>
 
 <% @games.each do |game| %>
-
 <%= game.name %>
 <img src="<%= game.photo_url %>">
 <% end %>
