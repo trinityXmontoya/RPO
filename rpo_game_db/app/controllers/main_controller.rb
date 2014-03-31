@@ -4,4 +4,8 @@ class MainController < ApplicationController
     @characters=Character.all
   end
 
+  def welcome
+    @users=User.all
+  end
+
 end

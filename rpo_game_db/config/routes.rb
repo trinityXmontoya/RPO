@@ -1,11 +1,15 @@
 RpoGameDb::Application.routes.draw do
 
 
+root to: 'main#welcome'
+
+get '/new_game', to: 'main#new_game'
+
 get '/login', to: 'sessions#new'
 post '/sessions', to: 'sessions#create'
 get '/logout', to: 'sessions#destroy'
 
-get '/welcome', to: 'main#welcome'
+get '/scoreboard', to: 'users#index'
 
 resources :users
 
@@ -18,7 +22,6 @@ resources :characters, only: :index, shallow:true do
   end
 end
 
-root to: 'users#index'
 
 end
 

@@ -2,6 +2,9 @@
 
 <img src="<%= @user.photo_url %>">
 
+<% form_tag %>
+<%  %>
+
 <h3>Score: <%= @user.score %>pts</h3>
 
 <h3>Time Played: <%= @user.time_played %> hours</h3>
@@ -13,8 +16,8 @@
 <img src="<%= character.photo_url %>">
 <br>
 <% if current_user == @user %>
-    <!-- character_percentage_complete method from character model -->
-    <%= character.character_percent_complete(@user) %>% Completed
+    <!-- character_percentage_complete method from user model -->
+    <%= @user.character_percent_complete(character) %>% Completed
 <% end %>
 
       <%= link_to "Resume Game", character_levels_path(character) %>

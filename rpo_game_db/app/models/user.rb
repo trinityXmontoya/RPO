@@ -26,6 +26,22 @@ class User < ActiveRecord::Base
     return score
   end
 
+  #calculates percentage of character story completed by user
+  def character_percent_complete(character)
+    level_total=[]
+     self.levels.each do |level|
+        if character.levels.include? level
+          level_total<<level
+        end
+      end
+    return (level_total.length/7.0*100).round
+  end
+
+  #add a user to your "friend" list
+  def add_friend(other_user)
+    self.friendships << other_user
+  end
+
 end
 
 

@@ -17,7 +17,9 @@
   <% else %>
   <br>
   <!-- if there is a current active user, provide option to view account logout or start game -->
-  <%= link_to "READY PLAYER ONE", welcome_path %>
+  <%= link_to "Home", root_path %>
+  <%= link_to "READY PLAYER ONE", new_game_path %>
+  <%= link_to "Scoreboard", scoreboard_path %>
   <%= link_to "View Account", user_path(User.find(session[:user_id])) %>
   <%= link_to "Logout", '/logout' %>
   <% end %>
