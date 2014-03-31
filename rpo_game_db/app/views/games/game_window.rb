@@ -12,5 +12,3 @@ window=GameWindow.new
 window.show
 
 
-<pre><%= File.read 'app/views/games/game_window.rb' %>
-</pre>

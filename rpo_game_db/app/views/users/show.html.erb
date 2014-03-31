@@ -33,10 +33,12 @@
 <% end %>
 
 
+<% date1=@user.created_at.to_date %>
+<% date2="2015-03-31".to_date%>
+<% account_age = (date2-date1).to_i %>
+<h3>Account Age: <%= account_age %> days old</h3>
 
 <h3>Score: <%= @user.score %>pts</h3>
-
-<h3>Time Played: <%= @user.time_played %> hours</h3>
 
 <h3>Characters Played:</h3>
 <% @characters.each do |character| %>
@@ -81,7 +83,8 @@
   @
   <% date1=Date.current %>
   <% date2= comment.created_at.to_date %>
-  <%= date_differece=(date2-date1).to_i %>
+  <% date_differece=(date2-date1).to_i %>
+
   Posted <%= date_differece %>
   <% if date_differece == 1  %>
   day

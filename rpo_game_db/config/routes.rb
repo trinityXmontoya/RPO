@@ -31,6 +31,7 @@ get 'levels/:id/:choice', to: 'levels#begin', as: :level_begin
 
 
 post 'games/game/1/guess', to: 'games#guess', as: :game_1_guess
+get 'games/game/1/guess', to: 'games#guess_result', as: :game_1_guess_result
 
 end
 

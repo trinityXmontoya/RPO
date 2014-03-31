@@ -2,10 +2,10 @@
 <br>
 <div class="game_1_circle"></div>
 <div class="game_1_circle"></div>
-<%= form_tag(game_1_guess_path) do %>
+<%= form_tag(game_1_guess_path, method:'get') do %>
 <% @game_load.each do |circle| %>
 <%= label_tag :color %>
-<%= select_tag(:color, options_for_select([:red,:blue,:yellow]) ) %>
+<%= select_tag("guess_#{@game_load.index(circle)}", options_for_select([:red,:blue,:yellow]) ) %>
 <% end %>
 <%= submit_tag "Guess!" %>
 <br>
@@ -17,4 +17,4 @@
 
 
 <pre><%= File.read 'app/views/games/game_window.rb' %>
-</pre>
+</pr

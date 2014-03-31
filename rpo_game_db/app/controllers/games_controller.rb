@@ -10,6 +10,14 @@ end
 
 def guess
   @game=Game.find(1)
+  @color1=
+  @color2=
+  @guess1=color_0
+  @guess2=color_1
+  redirect_to guess_result_path
+end
+
+def guess_result
 end
 
 
