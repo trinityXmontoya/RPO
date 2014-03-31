@@ -104,7 +104,7 @@ class UsersController < ApplicationController
      Comment.create(
       :user=>@user,
       :author_id=>@author.id,
-      :content=>:content)
+      :content=>params[:content])
      redirect_to user_path(@user)
   end
 
