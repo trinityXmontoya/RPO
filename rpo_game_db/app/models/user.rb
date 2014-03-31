@@ -17,6 +17,15 @@ class User < ActiveRecord::Base
   validates(:password, length: {minimum: 5})
 
 
+  #calculate user's total score based on games played
+  def calculate_score
+    score=0
+    self.games.each do |game|
+      score+=game.points
+    end
+    return score
+  end
+
 end
 
 
