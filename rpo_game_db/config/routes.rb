@@ -20,9 +20,6 @@ resources :users do
   post '/remove_comment',to: 'users#remove_comment'
 end
 
-
-
-
 resources :characters, only: :index, shallow:true do
   resources :levels, only: [:index, :show], :shallow => false do
     resources :games, only: :show

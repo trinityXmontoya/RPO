@@ -7,6 +7,7 @@ class MainController < ApplicationController
   def welcome
     @users=User.find(session[:user_id])
     @friends=@users.friends
+    @comments=Comment.all
   end
 
 end

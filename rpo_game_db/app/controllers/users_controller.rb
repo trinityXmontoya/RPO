@@ -71,28 +71,28 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @user=User.find(params[:id])
+    @user=User.find(params[:user_id])
     current_user.follow(@user)
     flash[:notice]="You are now following #{@user.username}!"
     redirect_to user_path(@user)
   end
 
   def unfollow
-    @user=User.find(params[:id])
+    @user=User.find(params[:user_id])
     current_user.unfollow(@user)
     flash[:notice]="You have unfollowed #{@user.username}"
     redirect_to user_path(@user)
   end
 
   def block
-    @user=User.find(params[:id])
+    @user=User.find(params[:user_id])
     current_user.block(@user)
     flash[:notice]="You have blocked #{@user.username}"
     redirect_to user_path(@user)
   end
 
   def unblock
-    @user=User.find(params[:id])
+    @user=User.find(params[:user_id])
     current_user.unblock(@user)
     flash[:notice]="You have unblocked #{@user.username}"
     redirect_to user_path(@user)

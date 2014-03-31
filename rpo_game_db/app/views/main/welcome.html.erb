@@ -2,6 +2,13 @@
 <h1>News Feed</h1>
 
 <% @friends.each do |friend| %>
+
+<% @comments.each do |comment| %>
+<% if comment.author_id == friend.id%>
+<%= comment.last.content %>
+<% end %>
+<% end %>
+
 <%= friend.username %> is currently playing as <%= Character.find(friend.character_id).name %>
 <br>
 <%= friend.username %>'s last game played was <%= Game.find(friend.games.last).name %>
