@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :characters, :uniq=>true
   has_and_belongs_to_many :levels, :uniq=>true
 
-  has_one :level
-  has_one :character
+  has_one :level, :uniq=>true
+  has_one :character, :uniq=>true
 
   has_many :friendships, :foreign_key => "user_id",
   :class_name => "Friendship"
@@ -13,8 +13,10 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships, dependent: :destroy
 
   validates(:username, :email, :password, :photo_url, presence: true )
-  validates(:username, :email, uniqueness: true)
+  validates(:username, :email, :character_id, :level_id, uniqueness: true)
   validates(:password, length: {minimum: 5})
 
 
 end
+
+

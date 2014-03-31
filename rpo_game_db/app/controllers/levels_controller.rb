@@ -4,7 +4,9 @@ class LevelsController < ApplicationController
   def index
     @character=Character.find(params[:character_id])
     @user=User.find(session[:user_id])
+    if !@user.characters.include? @character
     @user.characters << @character
+    end
     @user.update_attribute(:character_id,@character.id)
     @levels=[]
     @character.levels.each do |level|
@@ -13,6 +15,7 @@ class LevelsController < ApplicationController
       end
       return @levels
     end
+
   end
 
   def show
@@ -64,6 +67,10 @@ class LevelsController < ApplicationController
     @level=Level.find(params[:id])
     @user.games << @level.games
     @character=Character.find(@user.character_id)
+    # if @user.levels.pluck(:level_id).uniq.length < 6
+    if @user.levels.length < 6
+    @user.levels<<Level.find((@level.id+1))
+    end
   end
 
 

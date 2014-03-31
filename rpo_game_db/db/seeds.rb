@@ -11,7 +11,6 @@
 # level7=Level.create(id:7,name:'Cheetah Park')
 # level8=Level.create(id:8,name:'Leopard Way')
 
-
 # character1=Character.create(id:1,name:'Parzival',photo_url:'//placekitten.com/30/30',skill:'code')
 # character2=Character.create(id:2,name:'Aech',photo_url:'//placekitten.com/30/30',skill:'bravery')
 # character3=Character.create(id:3,name:'Art3mis',photo_url:'//placekitten.com/30/30',skill:'sass')
@@ -26,9 +25,9 @@
 # game2=Game.create(id:2, name: 'War Games',photo_url:'//placekitten.com/30/30',points:15)
 # game3=Game.create(id:3, name: 'Black Dragon',photo_url:'//placekitten.com/30/30',points:20)
 
-# user3.characters<<character3
-# user2.characters<<character3
-# user2.characters<<character2
+# # user3.characters<<character3
+# # user2.characters<<character3
+# # user2.characters<<character2
 
 # game1.users<<user2
 # game2.users<<user1
@@ -42,19 +41,15 @@
 # level6.games<<game3
 # level7.games<<game1
 
-# level4.characters << character2
-# level5.characters << character3
-# level6.characters << character1
-# character1.levels<<level1
-# character1.levels << level3
-# character2.levels << level2
-# character3.levels << level1
+# character1.levels << level1 << level2 << level3
+# character2.levels << level4 << level5 << level6
+# character3.levels << level7 << level8
 
-# user1.levels << level6
-# user1.levels << level3
-# user1.levels << level1
-# user2.levels << level2
-# user2.levels << level1
-# user3.levels << level4
-# user3.levels << level5
+# # user1.levels << level6
+# # user1.levels << level3
+# # user1.levels << level1
+# # user2.levels << level2
+# # user2.levels << level1
+# # user3.levels << level4
+# # user3.levels << level5
 

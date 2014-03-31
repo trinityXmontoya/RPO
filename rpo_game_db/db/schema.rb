@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331010614) do
+ActiveRecord::Schema.define(version: 20140331040831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140331010614) do
     t.integer "character_id"
     t.integer "user_id"
   end
+
+  add_index "characters_users", ["character_id"], name: "index_characters_users_on_character_id", unique: true, using: :btree
 
   create_table "enemies", force: true do |t|
     t.string  "name"
@@ -60,11 +62,13 @@ ActiveRecord::Schema.define(version: 20140331010614) do
     t.integer "user_id"
   end
 
+  add_index "games_users", ["game_id"], name: "index_games_users_on_game_id", unique: true, using: :btree
+
   create_table "levels", force: true do |t|
     t.string "name"
   end
 
-  create_table "levels_users", force: true do |t|
+  create_table "levels_users", id: false, force: true do |t|
     t.integer "level_id"
     t.integer "user_id"
   end
