@@ -4,17 +4,22 @@ class LevelsController < ApplicationController
   def index
     @character=Character.find(params[:character_id])
     @user=User.find(session[:user_id])
+
     if !@user.characters.include? @character
     @user.characters << @character
     end
+
     @user.update_attribute(:character_id,@character.id)
+
+    if !@user.levels.include? @character.levels.first
     @user.levels<<@character.levels.first
+    end
+
     @levels=[]
     @character.levels.each do |level|
       if @user.levels.include? level
         @levels << level
       end
-      return @levels
     end
 
   end
@@ -22,7 +27,12 @@ class LevelsController < ApplicationController
   def show
     @user=User.find(session[:user_id])
     @level=Level.find(params[:id])
-    @user.levels << @level
+    if !@user.levels.include? @level
+      @user.levels << @level
+    end
+
+    @user.update_attribute(:level_id,@level.id)
+
     if @level.id == 1
       @content="Do you climb the mountain or hill?"
       @option1="Climb Mountain."
@@ -48,7 +58,7 @@ class LevelsController < ApplicationController
         @option2="Fall"
       end
       @game=@level.games[0]
-    else @level.id == 2
+    elsif @level.id == 2
       if params[:choice]=="1"
       @content="Tree!"
       @option1="Climb It."
@@ -68,7 +78,7 @@ class LevelsController < ApplicationController
     @level=Level.find(params[:id])
 
     @level.games.each do |x|
-      if !@user.games.include? x.id
+      if !@user.games.include? x
         @user.games << x
       end
     end
@@ -76,7 +86,7 @@ class LevelsController < ApplicationController
     @character=Character.find(@user.character_id)
     # if @user.levels.pluck(:level_id).uniq.length < 6
       if @user.levels.length < 6
-      @user.levels<<Level.find((@level.id+1))
+      @user.levels<<Level.find(params[:id].to_i+1)
       end
   end
 
