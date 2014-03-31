@@ -84,6 +84,20 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def block
+    @user=User.find(params[:id])
+    current_user.block(@user)
+    flash[:notice]="You have blocked #{@user.username}"
+    redirect_to user_path(@user)
+  end
+
+  def unblock
+    @user=User.find(params[:id])
+    current_user.unblock(@user)
+    flash[:notice]="You have unblocked #{@user.username}"
+    redirect_to user_path(@user)
+  end
+
   private
   def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation, :photo_url)

@@ -15,6 +15,8 @@ resources :users
 
 post 'users/:id/follow', to: 'users#follow', as: :follow
 post 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
+post 'users/:id/block', to: 'users#block', as: :block
+post 'users/:id/unblock',to: 'users#unblock',as: :unblock
 
 resources :characters, only: :index, shallow:true do
   resources :levels, only: [:index, :show], :shallow => false do

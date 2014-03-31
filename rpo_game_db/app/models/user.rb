@@ -9,8 +9,11 @@ class User < ActiveRecord::Base
 
   has_many :friendships, :foreign_key => "user_id",
   :class_name => "Friendship"
-
   has_many :friends, :through => :friendships, dependent: :destroy
+
+  has_many :blockees, :foreign_key => "user_id",
+  :class_name => "Blockee"
+  has_many :blocked_users, :through => :blockees, dependent: :destroy
 
   validates(:username, :email, :password, :photo_url, presence: true )
   validates(:username, :email, :character_id, :level_id, uniqueness: true)
@@ -45,6 +48,16 @@ class User < ActiveRecord::Base
   #unfollow other user
   def unfollow(other_user)
     friends.delete(other_user)
+  end
+
+  #block user
+  def block(other_user)
+    blocked_users<<other_user
+  end
+
+  #unblock user
+  def unblock(other_user)
+    blocked_users.delete(other_user)
   end
 
 

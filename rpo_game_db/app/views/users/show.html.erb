@@ -5,17 +5,33 @@
 <img src="<%= @user.photo_url %>">
 
 
-<% if current_user != @user && !(current_user.friends.include? @user) %>
-  <%= form_tag(follow_path(@user)) do%>
-  <%= submit_tag ("Follow")  %>
+<% if current_user != @user %>
+
+  <% if !@user.blocked_users.include? current_user %>
+
+    <% if !(current_user.friends.include? @user) %>
+      <%= form_tag(follow_path) do%>
+      <%= submit_tag ("Follow")  %>
+      <% end %>
+    <% else %>
+      <%= form_tag(unfollow_path) do %>
+      <%= submit_tag ("Unfollow") %>
+      <% end %>
+    <% end %>
+
+    <% if !current_user.blocked_users.include? @user %>
+      <%= form_tag(block_path) do %>
+      <%= submit_tag ("Block") %>
+      <% end %>
+    <% else %>
+      <%= form_tag(unblock_path) do%>
+      <%= submit_tag ("Unblock") %>
+      <% end %>
+    <% end %>
   <% end %>
+
 <% end %>
 
-<% if current_user.friends.include? @user %>
-<%= form_tag(unfollow_path(@user)) do %>
-<%= submit_tag ("Unfollow") %>
-<% end %>
-<% end %>
 
 
 
