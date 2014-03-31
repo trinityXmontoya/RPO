@@ -59,6 +59,10 @@ class LevelsController < ApplicationController
 
 
   def end
+    @user=User.find(session[:user_id])
+    @level=Level.find(params[:id])
+    @user.games << @level.games
+
   end
 
 

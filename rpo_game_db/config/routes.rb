@@ -16,6 +16,7 @@ resources :characters, only: :index, shallow:true do
 end
 
 get '/levels/:id/:choice', to: 'levels#begin'
+get '/levels/:id/end', to: 'levels#end'
 
 root to: 'users#index'
 
