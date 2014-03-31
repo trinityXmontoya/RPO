@@ -8,9 +8,10 @@ class LevelsController < ApplicationController
     @user.characters << @character
     end
     @user.update_attribute(:character_id,@character.id)
+    @user.levels<<@character.levels.first
     @levels=[]
     @character.levels.each do |level|
-      if current_user.levels.include? level
+      if @user.levels.include? level
         @levels << level
       end
       return @levels
@@ -65,12 +66,18 @@ class LevelsController < ApplicationController
   def end
     @user=User.find(session[:user_id])
     @level=Level.find(params[:id])
-    @user.games << @level.games
+
+    @level.games.each do |x|
+      if !@user.games.include? x.id
+        @user.games << x
+      end
+    end
+
     @character=Character.find(@user.character_id)
     # if @user.levels.pluck(:level_id).uniq.length < 6
-    if @user.levels.length < 6
-    @user.levels<<Level.find((@level.id+1))
-    end
+      if @user.levels.length < 6
+      @user.levels<<Level.find((@level.id+1))
+      end
   end
 
 
