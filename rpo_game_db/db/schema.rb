@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330072520) do
+ActiveRecord::Schema.define(version: 20140331002918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140330072520) do
     t.string  "name"
     t.string  "photo_url"
     t.integer "points"
+    t.string  "method_name"
   end
 
   create_table "games_levels", id: false, force: true do |t|

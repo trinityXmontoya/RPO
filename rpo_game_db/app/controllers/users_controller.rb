@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     if current_user == @user
       render 'edit'
     else
-      flash[:notice] = "Sorry, you are not authorized to edit that user."
+      flash[:notice] = "You are not authorized to edit that user."
       redirect_to users_path
     end
   end
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
         render 'edit'
         end
     else
-    flash[:notice] = "Sorry, you are not authorized to edit that user."
+    flash[:notice] = "You are not authorized to edit that user."
     redirect_to users_path
     end
   end
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_path
     else
-    flash[:notice] = "Sorry, you are not authorized to delete that user."
+    flash[:notice] = "You are not authorized to delete that user."
     redirect_to users_path
     end
   end

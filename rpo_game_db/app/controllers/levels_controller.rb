@@ -32,27 +32,31 @@ class LevelsController < ApplicationController
   def begin
     @user=User.find(session[:user_id])
     @level=Level.find(params[:id])
-    if @level.id == 1 && params[:]==
-      @content="Do you climb the mountain or hill?"
-      @option1="Climb Mountain."
-      @option2="Climb Hill"
-    else @level.id == 1 &&
-      @content="Do you climb the mountain or hill?"
-      @option1="Climb Mountain."
-      @option2="Climb Hill"
-    elsif @level.id == 2
-      @option1="Scale Tree"
-      @option2="Scale Building"
-      @content="Do you scale the tree or the building?"
+    if @level.id == 1
+      if params[:choice]=="1"
+        @content="Mountain! Do you swim or sink?"
+        @option1="Swim."
+        @option2="Sink"
+      else
+        @content="Hill!Tumble or Fall?"
+        @option1="Tumble."
+        @option2="Fall"
+      end
+      @game=@level.games[0]
+    else @level.id == 2
+      if params[:choice]=="1"
+      @content="Tree!"
+      @option1="Climb It."
+      @option2="Shake it"
+      else
+      @content="Building!"
+      @option1="Rob it"
+      @option2="Examine it"
+      end
+      @game=@level.games[0]
     end
-
-
   end
 
-  def game
-    @game=Game.find(params[:game_id])
-    redirect_to game_path(@game)
-  end
 
   def end
   end
