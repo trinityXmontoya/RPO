@@ -11,3 +11,15 @@
  *= require_self
  *= require_tree .
  */
+
+.game_1_circle{
+  width: 50px;
+  height: 50px;
+  background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');
+  background-size: contain;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  border: solid black 4px;
+  border-radius: 100%;
+  display: inline-block;
+}

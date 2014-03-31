@@ -8,6 +8,9 @@ def show
   @level=Level.find(@user.level_id)
 end
 
+def guess
+  @game=Game.find(1)
+end
 
 
 end

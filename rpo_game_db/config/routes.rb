@@ -30,6 +30,8 @@ get 'levels/:id/end', to: 'levels#end', as: :level_end
 get 'levels/:id/:choice', to: 'levels#begin', as: :level_begin
 
 
+post 'games/game/1/guess', to: 'games#guess', as: :game_1_guess
+
 end
 
 # ,:path_prefix => 'levels/:id'

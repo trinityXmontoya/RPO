@@ -4,7 +4,11 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :levels, :uniq=>true
 
   def game_1
-    return "game 1"
+    colors=[:red,:yellow,:blue]
+    circlex=colors.sample
+    circley=colors.sample
+    circles=[]
+    circles << circlex << circley
   end
 
   def game_2

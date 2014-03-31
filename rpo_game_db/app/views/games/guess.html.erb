@@ -4,7 +4,7 @@
 <div class="game_1_circle"></div>
 <%= form_tag(game_1_guess_path) do %>
 <% @game_load.each do |circle| %>
-<%= label_tag :color %>
+<%= label_tag "color#{array_search(circle, @game_load)}" %>
 <%= select_tag(:color, options_for_select([:red,:blue,:yellow]) ) %>
 <% end %>
 <%= submit_tag "Guess!" %>
@@ -15,6 +15,3 @@
 
 <%= link_to "Success!", level_end_path(@level) %>
 
-
-<pre><%= File.read 'app/views/games/game_window.rb' %>
-</pre>
