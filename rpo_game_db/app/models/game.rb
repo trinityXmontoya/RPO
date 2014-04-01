@@ -3,13 +3,15 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :users, :uniq=>true
   has_and_belongs_to_many :levels, :uniq=>true
 
+
+  attr_accessor :colors,:color1,:color2,:guess,:circles
+
   def game_1
-    $colors=["red","yellow","blue"]
-    color1=$colors.sample
-    color2=$colors.sample
-    $circles=[]
-    $circles << color1 << color2
-    $guess=[]
+    @colors=["red","yellow","blue"]
+    @color1=@colors.sample
+    @color2=@colors.sample
+    @circles=[]
+    @circles << @color1 << @color2
   end
 
 

@@ -30,10 +30,8 @@ get 'levels/:id/end', to: 'levels#end', as: :level_end
 get 'levels/:id/:choice', to: 'levels#begin', as: :level_begin
 
 
-post 'games/game/1/guess', to: 'games#guess_post', as: :game_1_guess
-
-get 'games/game/1/guess', to: 'games#guess', as: :game_1_guess_display
-
+post 'games/game/1/guess', to: 'games#guess', as: :game_1_guess
+get 'games/game/1/display', to: 'games#display', as: :game_1_display
 get 'games/game/1/guess/result', to: 'games#guess_result', as: :game_1_guess_result
 
 end

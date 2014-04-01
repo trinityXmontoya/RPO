@@ -1,6 +1,7 @@
 <h1><%= @game.name %></h1>
 
-<% @circles.each do %>
+<p class="errors"><%= flash[:notice] %></p>
+<% $circles.each do %>
 <%= content_tag :div, class: "game_1_circle" do %>
 <% end %>
 <% end %>
@@ -16,15 +17,21 @@
 <%= flash[:color] %>
 <br>
 <%= flash[:position] %>
+<%= $circles %>
+
 
 <% i=0 %>
 <%= form_tag(game_1_guess_path, method:'post') do %>
-<% @circles.each do |circle| %>
-<%= circle %>
-<% while i<@circles.length %>
-<%= select_tag("color#{i}",options_for_select($colors.each {|color| color})) %>
+
+<% while i<$circles.length %>
+<%= select_tag "guess#{i}", options_for_select($colors.each do |color| color end)  %>
 <% i+=1 %>
 <% end %>
+
+<% i=0 %>
+<% while i<$circles.length %>
+<%= hidden_field_tag "color#{i}", $circles[i] %>
+<% i+=1 %>
 <% end %>
 <br>
 <%= submit_tag "Guess!" %>
