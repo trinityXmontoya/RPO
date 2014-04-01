@@ -4,12 +4,14 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :levels, :uniq=>true
 
   def game_1
-    colors=[:red,:yellow,:blue]
-    circlex=colors.sample
-    circley=colors.sample
-    circles=[]
-    circles << circlex << circley
+    $colors=["red","yellow","blue"]
+    color1=$colors.sample
+    color2=$colors.sample
+    $circles=[]
+    $circles << color1 << color2
+    $guess=[]
   end
+
 
   def game_2
     return "game 2"

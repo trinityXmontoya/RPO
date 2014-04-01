@@ -22,6 +22,9 @@ class LevelsController < ApplicationController
       end
     end
 
+    # MASTERMIND START OVER
+    $guesses=[]
+
   end
 
   def show

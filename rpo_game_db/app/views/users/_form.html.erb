@@ -1,34 +1,28 @@
 <%= form_for @user do |f| %>
 
   <% if @user.errors.any? %>
-  Please correct the following errors:
+   <p class="errors">Please correct the following errors:</p>
   <% end %>
 
-  <%= f.label :username %>
+  <%= f.label :username %>:
   <%= f.text_field :username %>
-  <%= errors_for :username %>
+  <p class="errors"><%= errors_for :username %></p>
   <br>
+  <%= f.label :email %>:<%= f.text_field :email %>
+  <p class="errors"><%= errors_for :email %></p>
   <br>
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-  <%= errors_for :email %>
-  <br>
-  <br>
-  <%= f.label :password %>
+  <%= f.label :password %>:
   <%= f.password_field :password %>
-  <%= errors_for :password %>
+  <p class="errors"><%= errors_for :password %></p>
   <br>
-  <br>
-  <%= f.label :confirm_password %>
+  <%= f.label :confirm_password %>:
   <%= f.password_field :password_confirmation %>
-  <%= errors_for :password_confirmation %>
+  <p class="errors"><%= errors_for :password_confirmation %></p>
   <br>
-  <br>
-  <%= f.label :profile_photo %>
+  <%= f.label :profile_photo %>:
   <%= f.text_field :photo_url %>
-  <%= errors_for :photo_url %>
-  <br>
-  <br>
+  <p class="errors"><%= errors_for :photo_url %></p>
+
 
   <%= f.submit %>
 

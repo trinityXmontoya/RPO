@@ -21,7 +21,7 @@
 
 # friendship1=Friendship.create(user_id: 1, friend_id:2)
 
-# game1=Game.create(id:1, name: 'Joust',photo_url:'//placekitten.com/30/30',points:10)
+# game1=Game.create(id:1, name: 'Mastermind',photo_url:'//placekitten.com/30/30',points:10)
 # game2=Game.create(id:2, name: 'War Games',photo_url:'//placekitten.com/30/30',points:15)
 # game3=Game.create(id:3, name: 'Black Dragon',photo_url:'//placekitten.com/30/30',points:20)
 

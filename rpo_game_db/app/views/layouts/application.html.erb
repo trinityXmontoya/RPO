@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>RpoGameDb</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
 </head>
 <body>
-
+<div class="container">
   <!-- ALLOWS OPTION FOR USERS TO LOGIN, VIEW ACCOUNT, OR LOGOUT -->
   <!-- if there is no current user active, provide login option -->
+  <header class="sixteen columns">
+  <nav id="home_nav">
+    <ul>
   <% if session[:user_id]==nil %>
-  <%= link_to "Login", '/login' %>
-  <br>
-  <%= link_to "Create New User", new_user_path %>
+  <li><%= link_to "Login", '/login' %></li>
+  <li><%= link_to "Create New User", new_user_path %></li>
   <% else %>
-  <br>
   <!-- if there is a current active user, provide option to view account logout or start game -->
-  <%= link_to "Home", root_path %>
-  <%= link_to "READY PLAYER ONE", new_game_path %>
-  <%= link_to "Scoreboard", scoreboard_path %>
-  <%= link_to "View Account", user_path(User.find(session[:user_id])) %>
-  <%= link_to "Logout", '/logout' %>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Ready Player One", new_game_path %></li>
+  <li><%= link_to "View Account", user_path(User.find(session[:user_id])) %></li>
+  <li><%= link_to "Logout", '/logout' %></li>
   <% end %>
-  <br>
+   <li><%= link_to "Scoreboard", scoreboard_path %></li>
+  </nav>
+  </header>
 
+  <div class="wrapper">
   <%= yield %>
+  </div>
 
+</div><!-- END CONTAINER -->
 </body>
 </html>

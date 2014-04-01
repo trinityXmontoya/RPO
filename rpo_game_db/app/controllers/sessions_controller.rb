@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
       flash[:notice]="USER NOT FOUND. Double check login info or create new account"
       render 'new'
     end
-
   end
 
   def destroy

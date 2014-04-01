@@ -5,9 +5,13 @@ class MainController < ApplicationController
   end
 
   def welcome
-    @users=User.find(session[:user_id])
-    @friends=@users.friends
+    if current_user !=nil
+    @user=User.find(session[:user_id])
+    @friends=@user.friends
     @comments=Comment.all
+  # else
+  #   redirect_to page
+   end
   end
 
 end

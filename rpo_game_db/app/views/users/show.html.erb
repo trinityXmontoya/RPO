@@ -1,6 +1,9 @@
 <%= flash[:notice] %>
 
-<%= @user.username %></h1>
+<div id="user" class="sixteen columns">
+
+  <div id="user_info" class="seven columns offset-by-one">
+<h1><%= @user.username %></h1>
 
 <img src="<%= @user.photo_url %>">
 
@@ -67,26 +70,24 @@
 <%= link_to "Delete this user", @user, method: :delete, data: {confirm: "Are you sure you wish to delete this user?\n All account information will be deleted and irretrievable."}  %>
 
 <%= link_to "Back to all users", users_path %>
+</div><!-- end user_info -->
 
 
+
+<div id="user_comments" class="five columns offset-by-two">
 <h1>Comments</h1>
-
-<%= form_tag(user_add_comment_path(@user)) do%>
-<%= text_area_tag(:content) %>
-<%= submit_tag ("Add Comment") %>
-<% end %>
-
+<div id="comment_content">
 <% @user.comments.each do |comment| %>
   <% author=User.find(comment.author_id) %>
   <img src="<%= author.photo_url %>" alt="">
   <%= link_to author.username,user_path(author) %>
-  @
+  -
   <% date1=Date.current %>
   <% date2= comment.created_at.to_date %>
-  <% date_differece=(date2-date1).to_i %>
+  <% date_difference=(date1-date2).to_i %>
 
-  Posted <%= date_differece %>
-  <% if date_differece == 1  %>
+  Posted <%= date_difference %>
+  <% if date_difference == 1  %>
   day
   <% else %>
   days
@@ -97,3 +98,12 @@
   <br>
   <br>
   <% end %>
+</div><!-- end comment_content -->
+
+  <%= form_tag(user_add_comment_path(@user),:class => 'form_class') do%>
+<%= text_area_tag(:content) %>
+<br>
+<%= submit_tag ("Add Comment") %>
+<% end %>
+</div><!-- end user_comments -->
+</div><!-- end user -->

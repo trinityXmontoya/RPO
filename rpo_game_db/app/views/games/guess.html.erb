@@ -1,17 +1,33 @@
-<%= @game.name %>
-<br>
-<div class="game_1_circle"></div>
-<div class="game_1_circle"></div>
-<%= form_tag(game_1_guess_path) do %>
-<% @game_load.each do |circle| %>
-<%= label_tag "color#{array_search(circle, @game_load)}" %>
-<%= select_tag(:color, options_for_select([:red,:blue,:yellow]) ) %>
+<h1><%= @game.name %></h1>
+
+<% @circles.each do %>
+<%= content_tag :div, class: "game_1_circle" do %>
 <% end %>
+<% end %>
+
+<br>
+<% if !$guesses.empty? %>
+<%= $guesses.each do |guess| %>
+<%= content_tag :div, class: "game_1_guess_circle", style: "background-color: #{guess}" do %>
+<% end %>
+<% end %>
+<% end %>
+<br>
+<%= flash[:color] %>
+<br>
+<%= flash[:position] %>
+
+<% i=0 %>
+<%= form_tag(game_1_guess_path, method:'post') do %>
+<% @circles.each do |circle| %>
+<%= circle %>
+<% while i<@circles.length %>
+<%= select_tag("color#{i}",options_for_select($colors.each {|color| color})) %>
+<% i+=1 %>
+<% end %>
+<% end %>
+<br>
 <%= submit_tag "Guess!" %>
 <br>
 <% end %>
 <br>
-
-
-<%= link_to "Success!", level_end_path(@level) %>
-

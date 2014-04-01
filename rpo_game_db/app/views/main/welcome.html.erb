@@ -1,16 +1,37 @@
 
-<h1>News Feed</h1>
+<% if current_user !=nil %>
+<div class="seven columns offset-by-three" id="news_feed">
+  <h1>News Feed</h1>
 
-<% @friends.each do |friend| %>
-
-<% @comments.each do |comment| %>
-<% if comment.author_id == friend.id%>
-<%= comment.last.content %>
-<% end %>
-<% end %>
-
-<%= friend.username %> is currently playing as <%= Character.find(friend.character_id).name %>
-<br>
-<%= friend.username %>'s last game played was <%= Game.find(friend.games.last).name %>
-<br>
+    <div id="news_feed_content">
+      <% @friends.each do |friend| %>
+      <div class="news_feed_friend">
+        <%= link_to friend.username, user_path(friend) %>
+        <img src="<%= friend.photo_url %>" alt="friend.username's photo">
+        <br>
+        <div class="news_feed_friend_comments">
+        <% @comments.each do |comment| %>
+          <% if comment.author_id == friend.id%>
+          <% $comments = [] %>
+          <% $comments << comment %>
+          <% end %>
+        <% end %>
+        <%= $comments.last.content %>
+        <%= $comments.last.created_at.strftime("%D") %>
+        </div>
+        <div class="news_feed_friend_character">
+          <% if !friend.characters.empty? %>
+          Last character played as: <%= Character.find(friend.character_id).name %>
+          <% end %>
+        </div>
+        <div class="news_feed_friend_game">
+          <% if !friend.games.empty? %>
+          Last game played: <%= Game.find(friend.games.last).name %>
+          <% end %>
+        </div>
+      </div><!-- end news_feed_friend -->
+    <% end %>
+    <br>
+    </div><!-- end news_feed_content -->
+</div><!-- end news_feed -->
 <% end %>

@@ -14,7 +14,10 @@ class UsersController < ApplicationController
     #SCORE METHOD from user model
     score=@user.calculate_score
     @user.update_attribute(:score, score)
-
+    if current_user == nil
+      flash[:notice]="You must login to see that information."
+      redirect_to login_path
+    end
   end
 
   def new
@@ -27,6 +30,7 @@ class UsersController < ApplicationController
     @user.character_id=nil
     @user.level_id=nil
     if @user.save
+      session[:user_id] = @user.id
       redirect_to @user
     else
       render 'new'
