@@ -19,6 +19,8 @@ def guess
   @guess1=params[:guess0]
   @guess2=params[:guess1]
   $guesses << @guess1 << @guess2
+  correct_color=0
+  correct_position=0
   if $guesses.last(2) == $circles
     $guesses=[]
     redirect_to game_1_guess_result_path
@@ -26,20 +28,18 @@ def guess
     flash[:notice]="You have taken too many turns. Try again."
     $guesses=[]
     redirect_to game_path(@game)
-  else $guesses.last(2) != $circles
-    correct_color=0
-    correct_position=0
+  elsif $guesses.last(2) != $circles
     if @color1==@guess1
       correct_color+=1
       correct_position+=1
-    else @color1==@guess2
+    elsif @color1==@guess2
       correct_color+=1
     end
-    if @color2==@guess1
-      correct_color+=1
-    else @color2==@guess2
-      correct_color+=1
+    if @color2==@guess2
+        correct_color+=1
       correct_position+=1
+    elsif @color2==@guess1
+      correct_color+=1
     end
     flash[:color]="Correct Colors:#{correct_color} "
     flash[:position]="Correct Positons:#{correct_position}"
