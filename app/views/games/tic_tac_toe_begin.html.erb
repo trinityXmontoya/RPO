@@ -1,0 +1,23 @@
+<%= @game.name %>
+<br>
+
+<% 3.times {  %>
+<%= form_tag, :class =>'tttform' do %>
+<%= content_tag :div, class: "tic_tac_toe_box" do %>
+<% end %>
+<% end %>
+<% } %>
+
+<% 3.times {  %>
+<%= form_tag do %>
+<%= content_tag :div, class: "tic_tac_toe_box" do %>
+<% end %>
+<% end %>
+<% } %>
+
+<% 3.times {  %>
+<%= form_tag do %>
+<%= content_tag :div, class: "tic_tac_toe_box" do %>
+<% end %>
+<% end %>
+<% } %>
