@@ -30,9 +30,15 @@ get 'levels/:id/end', to: 'levels#end', as: :level_end
 get 'levels/:id/:choice', to: 'levels#begin', as: :level_begin
 
 
-post 'games/game/1/guess', to: 'games#guess', as: :game_1_guess
-get 'games/game/1/display', to: 'games#display', as: :game_1_display
-get 'games/game/1/guess/result', to: 'games#guess_result', as: :game_1_guess_result
+post 'games/1/guess', to: 'games#mastermind_guess', as: :mastermind_guess
+get 'games/1/display', to: 'games#mastermind_display', as: :mastermind_display
+get 'games/1/begin', to: 'games#mastermind_begin', as: :mastermind_begin
+
+
+post 'games/2/guess', to: 'games#tic_tac_toe_move', as: :tic_tac_toe_move
+get 'games/2/display', to: 'games#tic_tac_toe_display', as: :tic_tac_toe_display
+get 'games/2/begin', to: 'games#tic_tac_toe_begin', as: :tic_tac_toe_begin
+
 
 end
 

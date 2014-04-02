@@ -1,16 +1,26 @@
 class GamesController < ApplicationController
 
 def show
-  @user=current_user
   @game=Game.find(params[:id])
-  @method="game_#{params[:id]}"
+  if @game.id ==1
+    redirect_to mastermind_begin_path
+  elsif @game.id==2
+    redirect_to tic_tac_toe_begin_path
+  end
+end
+
+
+def mastermind_begin
+  @user=current_user
+  @game=Game.find(1)
+  @method="game_1"
   @game_load=@game.method(@method).call
   @level=Level.find(@user.level_id)
   @circles=@game.circles
-  $guess=[]
+  $guesses=[]
 end
 
-def guess
+def mastermind_guess
   @game=Game.find(1)
   @color1=params[:color0]
   @color2=params[:color1]
@@ -21,42 +31,46 @@ def guess
   $guesses << @guess1 << @guess2
   correct_color=0
   correct_position=0
+  enemy=Enemy.find(current_user.character_id).name
   if $guesses.last(2) == $circles
-    $guesses=[]
-    redirect_to game_1_guess_result_path
+    flash[:win_msg]="Success! You've solved it and defeated #{enemy}!"
+    redirect_to mastermind_display_path
+
   elsif $guesses.length > 4
-    flash[:notice]="You have taken too many turns. Try again."
-    $guesses=[]
-    redirect_to game_path(@game)
+    flash[:notice]="You have taken too many turns and #{enemy} has won. Try again."
+    redirect_to mastermind_begin_path
+
   elsif $guesses.last(2) != $circles
+
     if @color1==@guess1
       correct_color+=1
       correct_position+=1
-    elsif @color1==@guess2
+    end
+    if @color1==@guess2 && @color1 != @guess1
       correct_color+=1
     end
+
     if @color2==@guess2
         correct_color+=1
       correct_position+=1
-    elsif @color2==@guess1
+    end
+
+    if @color2==@guess1 && @color2 != @guess2
       correct_color+=1
     end
+
     flash[:color]="Correct Colors:#{correct_color} "
     flash[:position]="Correct Positons:#{correct_position}"
-    redirect_to game_1_display_path
+    redirect_to mastermind_display_path
   end
 end
 
-def display
-
-  @game=Game.find(1)
-
-end
-
-
-def guess_result
+def mastermind_display
   @level=Level.find(current_user.level_id)
+  @game=Game.find(1)
 end
 
+def tic_tac_toe_begin
+end
 
 end

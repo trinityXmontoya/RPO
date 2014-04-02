@@ -8,20 +8,22 @@
 
 <br>
 <% if !$guesses.empty? %>
-<%= $guesses.each do |guess| %>
+<% $guesses.each do |guess| %>
 <%= content_tag :div, class: "game_1_guess_circle", style: "background-color: #{guess}" do %>
 <% end %>
 <% end %>
 <% end %>
 <br>
+
+
+<% if !flash[:win_msg] %>
 <%= flash[:color] %>
 <br>
 <%= flash[:position] %>
-<%= $circles %>
 
 
 <% i=0 %>
-<%= form_tag(game_1_guess_path, method:'post') do %>
+<%= form_tag(mastermind_guess_path, method:'post') do %>
 
 <% while i<$circles.length %>
 <%= select_tag "guess#{i}", options_for_select($colors.each do |color| color end)  %>
@@ -36,5 +38,13 @@
 <br>
 <%= submit_tag "Guess!" %>
 <br>
+<% end %>
+<% end %>
+
+
+<% if flash[:win_msg] %>
+<img src="https://warosu.org/data/tg/img/0264/33/1375738347067.jpg">
+<%= flash[:win_msg] %>
+<%= link_to "Continue on!", level_end_path(@level) %>
 <% end %>
 <br>

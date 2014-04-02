@@ -71,7 +71,7 @@ class LevelsController < ApplicationController
       @option1="Rob it"
       @option2="Examine it"
       end
-      @game=@level.games[0]
+      @game=@level.games[1]
     end
   end
 
