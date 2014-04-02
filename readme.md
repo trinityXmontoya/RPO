@@ -39,13 +39,13 @@ PROFILE:
 * shows characters user has played as
 * shows games user has played (badges)
 * has a comment section where any unblocked user may comment
-* individual comment shows author, content, and how many days ago it was posted (including attention to pluralization so “0 days” but “1 day”.
+  * individual comment shows author, content, and how many days ago it was posted (including attention to pluralization so “0 days” but “1 day”.
 * ability to follow and unfollow other users (confirmation message displayed)
-* if you are following a user, their information will show up in your newsfeed
+  * if you are following a user, their information will show up in your newsfeed
 * ability to block and unblock other users (confirmation message displayed)
-* if you have blocked a user they lose the ability to follow you
+  * if you have blocked a user they lose the ability to follow you
 * ability to edit or delete your account.
-* if you try to edit or delete an account which is not yours, you are redirected to the user index and an error message is displayed (left these buttons on each page because in the future will make it so that admins may delete any user)
+  * if you try to edit or delete an account which is not yours, you are redirected to the user index and an error message is displayed (left these buttons on each page because in the future will make it so that admins may delete any user)
 
 
 GAME PLAY:
