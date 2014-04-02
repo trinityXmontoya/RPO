@@ -17,50 +17,54 @@ def mastermind_begin
   @game_load=@game.method(@method).call
   @level=Level.find(@user.level_id)
   @circles=@game.circles
+  $colors=@game.colors
   $guesses=[]
+  $history=[]
 end
 
 def mastermind_guess
   @game=Game.find(1)
   @color1=params[:color0]
   @color2=params[:color1]
+  @color3=params[:color2]
+  @color4=params[:color3]
   $circles=[]
-  $circles << @color1 << @color2
+  $circles << @color1 << @color2 << @color3 << @color4
   @guess1=params[:guess0]
   @guess2=params[:guess1]
-  $guesses << @guess1 << @guess2
+  @guess3=params[:guess2]
+  @guess4=params[:guess3]
+  $guesses << @guess1 << @guess2 << @guess3 << @guess4
   correct_color=0
   correct_position=0
   enemy=Enemy.find(current_user.character_id).name
-  if $guesses.last(2) == $circles
+  if $guesses.last(4) == $circles
     flash[:win_msg]="Success! You've solved it and defeated #{enemy}!"
     redirect_to mastermind_display_path
 
-  elsif $guesses.length > 4
+  elsif $guesses.length > 20
     flash[:notice]="You have taken too many turns and #{enemy} has won. Try again."
     redirect_to mastermind_begin_path
 
-  elsif $guesses.last(2) != $circles
-
-    if @color1==@guess1
-      correct_color+=1
+  elsif $guesses.last(4) != $circles
+    g=$guesses.last(4)
+    i=0
+    while i < $circles.length
+    if g[i]==$circles[i]
       correct_position+=1
-    end
-    if @color1==@guess2 && @color1 != @guess1
       correct_color+=1
     end
-
-    if @color2==@guess2
-        correct_color+=1
-      correct_position+=1
-    end
-
-    if @color2==@guess1 && @color2 != @guess2
+    if $circles.include?(g[i]) && ($circles[i] != g[i])
       correct_color+=1
     end
+    i+=1
+  end
 
-    flash[:color]="Correct Colors:#{correct_color} "
-    flash[:position]="Correct Positons:#{correct_position}"
+  @position="Correct Position:#{correct_position}"
+  @color="Correct Colors:#{correct_color}"
+  $history<<@position << @color
+ flash[:color]=@color
+ flash[:position]=@position
     redirect_to mastermind_display_path
   end
 end

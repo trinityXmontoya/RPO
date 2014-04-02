@@ -1,11 +1,14 @@
 <h1><%= @game.name %></h1>
 
+<div class="eight columns offset-by-four">
+<div class="seven columns">
 <p class="errors"><%= flash[:notice] %></p>
 <% $circles.each do %>
 <%= content_tag :div, class: "game_1_circle" do %>
 <% end %>
 <% end %>
 
+<%= $circles %>
 <br>
 <% if !$guesses.empty? %>
 <% $guesses.each do |guess| %>
@@ -14,6 +17,7 @@
 <% end %>
 <% end %>
 <br>
+<%= $history %>
 
 
 <% if !flash[:win_msg] %>
@@ -26,7 +30,7 @@
 <%= form_tag(mastermind_guess_path, method:'post') do %>
 
 <% while i<$circles.length %>
-<%= select_tag "guess#{i}", options_for_select($colors.each do |color| color end)  %>
+<%= select_tag "guess#{i}", options_for_select($colors.each do |color| color end),{ :class => 'game_1_select' }  %>
 <% i+=1 %>
 <% end %>
 
@@ -48,3 +52,5 @@
 <%= link_to "Continue on!", level_end_path(@level) %>
 <% end %>
 <br>
+</div>
+</div>

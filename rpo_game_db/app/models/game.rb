@@ -4,15 +4,17 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :levels, :uniq=>true
 
 
-  attr_reader :colors,:color1,:color2,:guess,:circles
+  attr_reader :circles, :colors
   attr_reader :board, :winning_combinations, :x, :o
 
   def mastermind
-    @colors=["red","yellow","blue"]
-    @color1=@colors.sample
-    @color2=@colors.sample
+    @colors=["red","yellow","blue","green","orange","pink"]
+    color1=@colors.sample
+    color2=@colors.sample
+    color3=@colors.sample
+    color4=@colors.sample
     @circles=[]
-    @circles << @color1 << @color2
+    @circles << color1 << color2 << color3 << color4
   end
 
 
