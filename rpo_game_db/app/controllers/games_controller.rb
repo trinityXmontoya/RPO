@@ -4,7 +4,7 @@ def show
   @game=Game.find(params[:id])
   if @game.id ==1
     redirect_to mastermind_begin_path
-  elsif @game.id==2
+  elsif @game.id==3
     redirect_to tic_tac_toe_begin_path
   end
 end
@@ -13,7 +13,7 @@ end
 def mastermind_begin
   @user=current_user
   @game=Game.find(1)
-  @method="game_1"
+  @method="mastermind"
   @game_load=@game.method(@method).call
   @level=Level.find(@user.level_id)
   @circles=@game.circles
@@ -71,6 +71,13 @@ def mastermind_display
 end
 
 def tic_tac_toe_begin
+  @user=current_user
+  @game=Game.find(3)
+  @method="tic_tac_toe"
+  @game_load=@game.method(@method).call
+  @level=Level.find(@user.level_id)
+  @board=@game.board
+  @o=@game.o
 end
 
 end

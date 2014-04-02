@@ -4,9 +4,10 @@ class Game < ActiveRecord::Base
   has_and_belongs_to_many :levels, :uniq=>true
 
 
-  attr_accessor :colors,:color1,:color2,:guess,:circles
+  attr_reader :colors,:color1,:color2,:guess,:circles
+  attr_reader :board, :winning_combinations, :x, :o
 
-  def game_1
+  def mastermind
     @colors=["red","yellow","blue"]
     @color1=@colors.sample
     @color2=@colors.sample
@@ -19,8 +20,24 @@ class Game < ActiveRecord::Base
     return "game 2"
   end
 
-  def game_3
-    return "game 3"
+  def tic_tac_toe
+    @board= [
+      "_","_","_",
+      "_","_","_",
+      "_","_","_"
+    ]
+    @winning_combinations=[
+      [0,1,2],
+      [3,4,5],
+      [6,7,8],
+      [0,3,6],
+      [1,4,7],
+      [2,5,8],
+      [0,4,8],
+      [2,4,6]
+    ]
+    @x="X"
+    @o="O"
   end
 
   def game_4
