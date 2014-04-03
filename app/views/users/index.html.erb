@@ -1,0 +1,28 @@
+<div class="four columns offset-by-four"><p style="background-color:red"><%= flash[:notice] %></p>
+
+<div id="scoreboard">
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>High Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.username, user %></td>
+      <td><%= user.score %></td>
+      <% end %>
+
+    </tr>
+  </tbody>
+
+</table>
+
+<% if current_user !=nil %>
+ <a href="https://twitter.com/share?" class="twitter-share-button" data-text="My new RPO high score?? <%= current_user.score %>. Beat that!!!" data-hashtags="Mastermind4Lyfe" data-lang="en" data-size="medium">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<% end %>
+</div>
+</div>

@@ -1,0 +1,27 @@
+
+<div class = "fourteen columns offset-by-one">
+
+<div id="characters">
+<center><h1>Choose the character you wish to play as</h1>
+<% @characters.each do |character| %>
+<% enemy=@enemies.find(character.id) %>
+<% character.description = "nothing" %>
+
+
+<%= link_to character_levels_path(character) do %>
+<div class='character_select'>
+<img class="character_select_photo" src="<%= character.photo_url %>" alt="<%= character.name %>'s photo">
+<br>
+Skill: <%= character.skill %>
+<br>
+Description: <%= character.description %>
+<br>
+Nemesis: <%= enemy.name %>
+<br>
+<img class="character_select_enemy_photo" src="<%= enemy.photo_url %>" alt="enemy.name"'s photo'>
+</div>
+<% end %>
+<% end %>
+</div>
+</div>
+</center>

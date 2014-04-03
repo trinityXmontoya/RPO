@@ -1,0 +1,117 @@
+
+<p class="errors"><%= flash[:notice] %></p>
+
+<div id="user" class="sixteen columns">
+
+  <div id="user_info" class="seven columns offset-by-one">
+<h1><%= @user.username %></h1>
+
+<img class="user_photo" src="<%= @user.photo_url %>">
+
+<% if current_user != @user %>
+
+  <% if !@user.blocked_users.include? current_user %>
+
+    <% if !(current_user.friends.include? @user) %>
+      <%= form_tag(user_follow_path(@user)) do%>
+      <%= submit_tag ("Follow")  %>
+      <% end %>
+    <% else %>
+      <%= form_tag(user_unfollow_path(@user)) do %>
+      <%= submit_tag ("Unfollow") %>
+      <% end %>
+    <% end %>
+
+    <% if !current_user.blocked_users.include? @user %>
+      <%= form_tag(user_block_path(@user)) do %>
+      <%= submit_tag ("Block") %>
+      <% end %>
+    <% else %>
+      <%= form_tag(user_unblock_path(@user)) do%>
+      <%= submit_tag ("Unblock") %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<% end %>
+
+
+<% date1=@user.created_at.to_date %>
+<% date2="2015-03-31".to_date%>
+<% account_age = (date2-date1).to_i %>
+<h3>Account Age: <%= account_age %> days old</h3>
+
+<h3>Score: <%= @user.score %>pts</h3>
+
+<h3>Characters Played:</h3>
+<% @characters.each do |character| %>
+<div class="characters_played">
+<%= character.name %>
+<br>
+<img class="character_photo" src="<%= character.photo_url %>">
+<br>
+<% if current_user == @user %>
+    <!-- character_percentage_complete method from user model -->
+    <%= @user.character_percent_complete(character) %>% Completed
+<br>
+<%= link_to "Resume Game", character_levels_path(character) %>
+<% end %>
+      <br>
+      <br>
+      </div>
+<% end %>
+<h3>Games Played:</h3>
+<div class="games_played">
+<% @games.each do |game| %>
+<div class="individual_game_info">
+<img class="game_photo" src="<%= game.photo_url %>">
+<br>
+<%= game.name %>
+</div>
+<% end %>
+</div>
+
+<br>
+<%= link_to "Edit this user", edit_user_path(@user) %>
+<%= link_to "Delete this user", @user, method: :delete, data: {confirm: "Are you sure you wish to delete this user?\n All account information will be deleted and irretrievable."}  %>
+
+<%= link_to "Back to all users", users_path %>
+</div>
+<!-- end user_info -->
+
+
+<div class="six columns offset-by-one">
+<div id="user_comments">
+<h1>Comments</h1>
+<div id="comment_content">
+<% @user.comments.each do |comment| %>
+  <% author=User.find(comment.author_id) %>
+  <img class="author_photo" src="<%= author.photo_url %>" alt="">
+  <%= link_to author.username,user_path(author) %>
+  -
+  <% date1=Date.current %>
+  <% date2= comment.created_at.to_date %>
+  <% date_difference=(date1-date2).to_i %>
+
+  Posted <%= date_difference %>
+  <% if date_difference == 1  %>
+  day
+  <% else %>
+  days
+  <% end %>
+  ago
+  <br>
+  "<%= comment.content %>"
+  <br>
+  <br>
+  <% end %>
+</div><!-- end comment_content -->
+
+  <%= form_tag(user_add_comment_path(@user),:class => 'form_class') do%>
+<%= text_area_tag(:content) %>
+<br>
+<%= submit_tag ("Add Comment") %>
+<% end %>
+</div><!-- end user_comments -->
+</div> <!-- end user comment container -->
+</div><!-- end user -->

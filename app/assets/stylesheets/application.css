@@ -1,0 +1,355 @@
+/*
+*= require reset
+*= require_self
+*= require_tree .
+*/
+
+
+/*GLOBAL STYLES*/
+a {
+  text-decoration: none;
+  color:rgb(64,166,56);
+/*  font-family: 'pixelfont';*/
+}
+body {
+  /*color:rgb(64,166,56);*/
+/*  background-color:rgb(16,16,1);*/
+/*background-image: url('http://subtlepatterns.com/patterns/dark_dotted2.png');*/
+background-color: black;}
+
+.container {/*font-family: 'pixelfont'*/}
+
+h1 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.flash {
+  color: blue;
+  background-color: white;
+}
+
+.errors{
+  color: crimson;
+  padding: 5px;
+  width: 100%;
+  font-weight: bold;
+  background-color: white;
+}
+
+/*FORMS*/
+.form_class textarea {
+  width: 90%;
+  height: 60px
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  width: 130px;
+  height: 30px;
+  border: 1px solid black;
+  font-size: 15px;
+  background-color: black;
+  color:rgb(64,166,56)
+}
+
+form#new_user input {
+  margin-left: 5px;
+}
+#user_password_confirmation {
+  width: 126px;
+}
+
+
+/* NAV BAR*/
+#logo {
+  font-family: 'Audiowide';
+  font-size: 35px;
+}
+
+.nav_header {
+  margin-top: 30px;
+  background-color: white;
+}
+
+#home_nav{
+  margin-top: 20px;
+  background-color: whitesmoke;
+  text-align: center;
+
+}
+#home_nav ul li{
+  display: inline-block;
+  font-size: 23px;
+  padding: 20px;
+}
+
+#home_nav ul li a {
+}
+
+
+/*LOGIN*/
+#login_content {
+  margin-top: 50px;
+  text-align: center;
+  background-color: rgb(64,166,56);
+  padding: 30px 10px;
+}
+#login h1 {
+  text-align: left;
+}
+/*NEW USER*/
+#new_user_container {
+  margin-top: 70px;
+}
+
+#new_user {
+  background-color: rgb(64,166,56);
+  padding: 30px
+}
+
+/*NEWS FEED*/
+#news_feed{
+  margin-top: 20px;
+  height: 500px;
+  overflow: scroll;
+}
+
+#news_feed_content{
+  margin-top: 30px;
+}
+
+.news_feed_friend{
+  border: solid black 2px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+/*USER PROFILE PAGE*/
+#user{
+  margin-top: 20px;
+}
+
+
+#user_info{
+  display: inline-block;
+  background-color: white;
+  padding: 20px;
+}
+
+#user_comments{
+  display: inline-block;
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+}
+
+/*COMMENTS*/
+#comment_content{
+  margin-top: 25px;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+
+/*GAME*/
+.game_1_circle{
+  width: 50px;
+  height: 50px;
+  background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');
+  background-size: contain;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  border: solid black 4px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.game_1_circle:nth-child(3) {
+  margin-left: 39px;
+}
+
+.game_1_circle:nth-child(4) {
+  margin-left: 39px;
+}
+
+.game_1_circle:nth-child(5) {
+  margin-left: 39px;
+}
+
+
+.game_1_guess_circle {
+   width: 50px;
+  height: 50px;
+  border: solid black 4px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.game_1_guess_circle:nth-child(2n){
+  margin-left: 39px;
+}
+.game_1_guess_circle:nth-child(3n){
+  margin-left: 39px;
+}
+.game_1_guess_circle:nth-child(4n){
+  margin-left: 39px;
+}
+
+
+.game_1_select {
+  margin-left: 12px;
+}
+
+/*TIC TAC TOE*/
+.tic_tac_toe_box {
+  width: 50px;
+  height: 50px;
+  border: solid black 4px;
+  display: inline-block;
+}
+
+.tttform {
+  width: 50px;
+}
+
+/*CHARACTER INDEX*/
+
+.c_container {
+  width: 210px;
+  height: 140px;
+  position: relative;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+#carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+#carousel figure {
+  display: block;
+  position: absolute;
+  width: 186px;
+  height: 116px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+}
+
+#carousel figure:nth-child(1) { transform: rotateY(   0deg ) translateZ( 864px );
+-webkit-transform: rotateY(   0deg )-webkit-translateZ( 864px ) }
+#carousel figure:nth-child(2) { transform: rotateY(  130deg )translateZ( 864px );
+-webkit-transform: rotateY(   120deg )-webkit-translateZ( 864px ) }
+#carousel figure:nth-child(3) { transform: rotateY(  240deg )translateZ( 864px );
+-webkit-transform: rotateY(   240deg )-webkit-translateZ( 864px ) }
+
+
+/*SCOREBOARD*/
+#scoreboard {
+  background-color: white;
+  padding: 40px;
+  margin-top: 40px;
+  width: 100%;
+  font-size: 25px
+}
+
+/*NEW GAME PAGE*/
+#new_game {
+  background-color: white;
+  width: 500px;
+  height: 200px;
+  margin: 5% auto;
+  font-size: 23px;
+}
+
+/*CHARACTERS*/
+#characters {
+  background-color: white;
+  margin-top: 40px;
+}
+.character_select {
+  display: inline-block;
+  margin: 25px 10px 0 0;
+}
+
+/*CHARACTER LEVEL INDEX*/
+#level_index {
+  background-color: white;
+  margin-top: 25px;
+  padding: 50px;
+}
+
+#game_begin {
+  margin-top: 35px;
+  padding: 20px;
+  background-color: white;
+}
+
+#game_end {
+   margin-top: 35px;
+  padding: 20px;
+  background-color: white;
+}
+
+#game_show {
+   margin-top: 35px;
+  padding: 20px;
+  background-color: white;
+}
+
+/*MASTERMIND*/
+
+#mastermind_begin{ background-color: white;
+  padding: 40px;
+  margin-top: 35px;
+}
+
+#mastermind_display{
+  background-color: white;
+  padding: 40px;
+  margin-top: 35px;
+  height: 1200px;
+}
+
+#news_feed {
+  background-color: white;
+  padding: 20px;
+}
+
+
+.friend_photo{height: 150px}
+.user_photo{height: 300px}
+.author_photo{height: 60px}
+.character_photo{height: 150px;}
+.game_photo{
+  width: 70px;
+  height: 70px;
+  border: solid black 3px;
+  border-radius: 100%;
+}
+.character_select_photo{
+  height: 350px;
+}
+.character_select_enemy_photo{
+  height: 100px;
+}
+
+.ttt {
+  background-color: white;
+}
+
+.individual_game_info {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+.characters_played {
+  display: inline-block;
+}

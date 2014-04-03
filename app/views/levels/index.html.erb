@@ -1,0 +1,15 @@
+
+<div class= "six columns offset-by-five">
+  <div id="level_index">
+    <h1><%= @character.name %></h1>
+<% i=0%>
+<% while i < @levels.length %>
+<% @levels.each do |level| %>
+Level <%= "#{i+1}" %>:<%= link_to level.name, level_path(level.id) %>
+<br>
+<% i+=1 %>
+<% end %>
+<br>
+<% end %>
+</div>
+</div>
