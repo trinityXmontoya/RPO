@@ -1,0 +1,13 @@
+<br>
+<br>
+<br>
+
+<% i=0%>
+<% while i < @levels.length %>
+<% @levels.each do |level| %>
+Level <%= "#{i+1}" %>:<%= link_to level.name, level_path(level.id) %>
+<br>
+<% i+=1 %>
+<% end %>
+<br>
+<% end %>
