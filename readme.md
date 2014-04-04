@@ -1,12 +1,26 @@
 RUBY VERSION: 2.1.0
 
+RPO - Gaming website with built-in games, allows user to follow other users and keep tracking of their own score.
+
+
+A list of the technologies you used for your project
+
+
 ERDs:
 https://www.lucidchart.com/documents/edit/4696f2b4-5334-4c05-874d-03fd0a00da8d
 
 Pivotal Tracker: 
 https://www.pivotaltracker.com/n/projects/1046976
 
-Features:
+Heroku:
+
+Technology:
+* Ruby on Rails
+* Postgresql
+* Twitter API
+* Skeleton
+
+Features/Completed User Stories:
 
 LOGIN:
 * If invalid/incomplete information is entered, error message is displayed.
@@ -23,8 +37,10 @@ CREATE NEW USER:
 
 SCOREBOARD:
 * Viewable by anyone (to increase interest in site by being able to see a scoreboard of all the current users and incentive to reach the top of that scoreboard!)
+* If logged in you have the ability to tweet your score
 * If logged in you have the option to click on each user and see their profile.
 * If not logged in you are redirected to the login path and an error message is displayed saying that you must login to see that information.
+
 
 NEWS FEED/HOME:
 * Displays user’s “friends” most recent comment, most recent game played, and most recent character. Option to click and be redirected to “friend’s” profile.
@@ -48,4 +64,11 @@ GAME PLAY:
 * Mastermind
 * Tic-Tac-Toe in the works
 
+
+Backlogged User Stories:
+
+* As a user I want the ability to decide what I show on my profile so I can control what other people will see
+* As a user I want to be able to keep track of the amount of time I have spent on the site so  I can display it on my profile
+* As a user I want to be able to accurately save my game progress so I can access it when I log back on
+* As a user I want to be able to play many different kinds of games so I can stay entertained
 
