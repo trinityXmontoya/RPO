@@ -63,7 +63,6 @@ def mastermind_guess
       end
     end
 
-
   @position="Correct Position:#{correct_position}"
   @color="Correct Colors:#{correct_color}"
   flash[:color]=@color

@@ -1,0 +1,706 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*
+
+
+
+*/
+
+
+/*GLOBAL STYLES*/
+
+a {
+  text-decoration: none;
+  color:rgb(64,166,56);
+/*  font-family: 'pixelfont';*/
+}
+body {
+  /*color:rgb(64,166,56);*/
+/*  background-color:rgb(16,16,1);*/
+/*background-image: url('http://subtlepatterns.com/patterns/dark_dotted2.png');*/
+background-color: black;}
+
+.container {/*font-family: 'pixelfont'*/}
+
+h1 {
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.flash {
+  color: blue;
+  background-color: white;
+}
+
+.errors{
+  color: crimson;
+  padding: 5px;
+  width: 100%;
+  font-weight: bold;
+  background-color: white;
+}
+
+/*FORMS*/
+.form_class textarea {
+  width: 90%;
+  height: 60px
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  width: 130px;
+  height: 30px;
+  border: 1px solid black;
+  font-size: 15px;
+  background-color: black;
+  color:rgb(64,166,56)
+}
+
+form#new_user input {
+  margin-left: 5px;
+}
+#user_password_confirmation {
+  width: 126px;
+}
+
+
+/* NAV BAR*/
+#logo {
+  font-family: 'Audiowide';
+  font-size: 35px;
+}
+
+.nav_header {
+  margin-top: 30px;
+  background-color: white;
+}
+
+#home_nav{
+  margin-top: 20px;
+  background-color: whitesmoke;
+  text-align: center;
+
+}
+#home_nav ul li{
+  display: inline-block;
+  font-size: 23px;
+  padding: 20px;
+}
+
+#home_nav ul li a {
+}
+
+
+/*LOGIN*/
+#login_content {
+  margin-top: 50px;
+  text-align: center;
+  background-color: rgb(64,166,56);
+  padding: 30px 10px;
+}
+#login h1 {
+  text-align: left;
+}
+/*NEW USER*/
+#new_user_container {
+  margin-top: 70px;
+}
+
+#new_user {
+  background-color: rgb(64,166,56);
+  padding: 30px
+}
+
+/*NEWS FEED*/
+#news_feed{
+  margin-top: 20px;
+  height: 500px;
+  overflow: scroll;
+}
+
+#news_feed_content{
+  margin-top: 30px;
+}
+
+.news_feed_friend{
+  border: solid black 2px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+/*USER PROFILE PAGE*/
+#user{
+  margin-top: 20px;
+}
+
+
+#user_info{
+  display: inline-block;
+  background-color: white;
+  padding: 20px;
+}
+
+#user_comments{
+  display: inline-block;
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+}
+
+/*COMMENTS*/
+#comment_content{
+  margin-top: 25px;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+
+/*GAME*/
+.game_1_circle{
+  width: 50px;
+  height: 50px;
+  background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');
+  background-size: contain;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  border: solid black 4px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.game_1_circle:nth-child(3) {
+  margin-left: 39px;
+}
+
+.game_1_circle:nth-child(4) {
+  margin-left: 39px;
+}
+
+.game_1_circle:nth-child(5) {
+  margin-left: 39px;
+}
+
+
+.game_1_guess_circle {
+   width: 50px;
+  height: 50px;
+  border: solid black 4px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-left: 25px;
+}
+
+.game_1_guess_circle:nth-child(2n){
+  margin-left: 39px;
+}
+.game_1_guess_circle:nth-child(3n){
+  margin-left: 39px;
+}
+.game_1_guess_circle:nth-child(4n){
+  margin-left: 39px;
+}
+
+
+.game_1_select {
+  margin-left: 12px;
+}
+
+/*TIC TAC TOE*/
+.tic_tac_toe_box {
+  width: 50px;
+  height: 50px;
+  border: solid black 4px;
+  display: inline-block;
+}
+
+.tttform {
+  width: 50px;
+}
+
+/*CHARACTER INDEX*/
+
+.c_container {
+  width: 210px;
+  height: 140px;
+  position: relative;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+
+#carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+#carousel figure {
+  display: block;
+  position: absolute;
+  width: 186px;
+  height: 116px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+}
+
+#carousel figure:nth-child(1) { transform: rotateY(   0deg ) translateZ( 864px );
+-webkit-transform: rotateY(   0deg )-webkit-translateZ( 864px ) }
+#carousel figure:nth-child(2) { transform: rotateY(  130deg )translateZ( 864px );
+-webkit-transform: rotateY(   120deg )-webkit-translateZ( 864px ) }
+#carousel figure:nth-child(3) { transform: rotateY(  240deg )translateZ( 864px );
+-webkit-transform: rotateY(   240deg )-webkit-translateZ( 864px ) }
+
+
+/*SCOREBOARD*/
+#scoreboard {
+  background-color: white;
+  padding: 40px;
+  margin-top: 40px;
+  width: 100%;
+  font-size: 25px
+}
+
+/*NEW GAME PAGE*/
+#new_game {
+  background-color: white;
+  width: 500px;
+  height: 200px;
+  margin: 5% auto;
+  font-size: 23px;
+}
+
+/*CHARACTERS*/
+#characters {
+  background-color: white;
+  margin-top: 40px;
+}
+.character_select {
+  display: inline-block;
+  margin: 25px 10px 0 0;
+}
+
+/*CHARACTER LEVEL INDEX*/
+#level_index {
+  background-color: white;
+  margin-top: 25px;
+  padding: 50px;
+}
+
+#game_begin {
+  margin-top: 35px;
+  padding: 20px;
+  background-color: white;
+}
+
+#game_end {
+   margin-top: 35px;
+  padding: 20px;
+  background-color: white;
+}
+
+#game_show {
+   margin-top: 35px;
+  padding: 20px;
+  background-color: white;
+}
+
+/*MASTERMIND*/
+
+#mastermind_begin{ background-color: white;
+  padding: 40px;
+  margin-top: 35px;
+}
+
+#mastermind_display{
+  background-color: white;
+  padding: 40px;
+  margin-top: 35px;
+  height: 1200px;
+}
+
+#news_feed {
+  background-color: white;
+  padding: 20px;
+}
+
+
+.friend_photo{height: 150px}
+.user_photo{height: 300px}
+.author_photo{height: 60px}
+.character_photo{height: 150px;}
+.game_photo{
+  width: 70px;
+  height: 70px;
+  border: solid black 3px;
+  border-radius: 100%;
+}
+.character_select_photo{
+  height: 350px;
+}
+.character_select_enemy_photo{
+  height: 100px;
+}
+
+.ttt {
+  background-color: white;
+}
+
+.individual_game_info {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+
+.characters_played {
+  display: inline-block;
+}
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+/* Table of Content
+==================================================
+	#Site Styles
+	#Page Styles
+	#Media Queries
+	#Font-Face */
+
+/* #Site Styles
+================================================== */
+
+/* #Page Styles
+================================================== */
+
+/* #Media Queries
+================================================== */
+
+	/* Smaller than standard 960 (devices and browsers) */
+
+	@media only screen and (max-width: 959px) {}
+
+	/* Tablet Portrait size to standard 960 (devices and browsers) */
+	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+
+	/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {}
+
+	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {}
+
+
+/* #Font-Face
+================================================== */
+/* 	This is the proper syntax for an @font-face file
+		Just create a "fonts" folder at the root,
+		copy your FontName into code below and remove
+		comment brackets */
+
+@font-face {
+	    font-family: 'pixelfont';
+	    src: url('pixelmix.eot');
+	    src: url('pixelmix.eot?iefix') format('eot'),
+	         url('pixelmix.woff') format('woff'),
+	         url('pixelmix.ttf') format('truetype'),
+	         url('pixelmix.svg#webfontZam02nTh') format('svg');
+	    font-weight: normal;
+	    font-style: normal; }
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Table of Contents
+==================================================
+    #Base 960 Grid
+    #Tablet (Portrait)
+    #Mobile (Portrait)
+    #Mobile (Landscape)
+    #Clearing */
+
+
+
+/* #Base 960 Grid
+================================================== */
+
+
+    .container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+    .container .column,
+    .container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+    .row                                        { margin-bottom: 20px; }
+
+    /* Nested Column Classes */
+    .column.alpha, .columns.alpha               { margin-left: 0; }
+    .column.omega, .columns.omega               { margin-right: 0; }
+
+    /* Base Grid */
+    .container .one.column,
+    .container .one.columns                     { width: 40px;  }
+    .container .two.columns                     { width: 100px; }
+    .container .three.columns                   { width: 160px; }
+    .container .four.columns                    { width: 220px; }
+    .container .five.columns                    { width: 280px; }
+    .container .six.columns                     { width: 340px; }
+    .container .seven.columns                   { width: 400px; }
+    .container .eight.columns                   { width: 460px; }
+    .container .nine.columns                    { width: 520px; }
+    .container .ten.columns                     { width: 580px; }
+    .container .eleven.columns                  { width: 640px; }
+    .container .twelve.columns                  { width: 700px; }
+    .container .thirteen.columns                { width: 760px; }
+    .container .fourteen.columns                { width: 820px; }
+    .container .fifteen.columns                 { width: 880px; }
+    .container .sixteen.columns                 { width: 940px; }
+
+    .container .one-third.column                { width: 300px; }
+    .container .two-thirds.column               { width: 620px; }
+
+    /* Offsets */
+    .container .offset-by-one                   { padding-left: 60px;  }
+    .container .offset-by-two                   { padding-left: 120px; }
+    .container .offset-by-three                 { padding-left: 180px; }
+    .container .offset-by-four                  { padding-left: 240px; }
+    .container .offset-by-five                  { padding-left: 300px; }
+    .container .offset-by-six                   { padding-left: 360px; }
+    .container .offset-by-seven                 { padding-left: 420px; }
+    .container .offset-by-eight                 { padding-left: 480px; }
+    .container .offset-by-nine                  { padding-left: 540px; }
+    .container .offset-by-ten                   { padding-left: 600px; }
+    .container .offset-by-eleven                { padding-left: 660px; }
+    .container .offset-by-twelve                { padding-left: 720px; }
+    .container .offset-by-thirteen              { padding-left: 780px; }
+    .container .offset-by-fourteen              { padding-left: 840px; }
+    .container .offset-by-fifteen               { padding-left: 900px; }
+
+
+
+/* #Tablet (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 768px */
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+        .container                                  { width: 768px; }
+        .container .column,
+        .container .columns                         { margin-left: 10px; margin-right: 10px;  }
+        .column.alpha, .columns.alpha               { margin-left: 0; margin-right: 10px; }
+        .column.omega, .columns.omega               { margin-right: 0; margin-left: 10px; }
+        .alpha.omega                                { margin-left: 0; margin-right: 0; }
+
+        .container .one.column,
+        .container .one.columns                     { width: 28px; }
+        .container .two.columns                     { width: 76px; }
+        .container .three.columns                   { width: 124px; }
+        .container .four.columns                    { width: 172px; }
+        .container .five.columns                    { width: 220px; }
+        .container .six.columns                     { width: 268px; }
+        .container .seven.columns                   { width: 316px; }
+        .container .eight.columns                   { width: 364px; }
+        .container .nine.columns                    { width: 412px; }
+        .container .ten.columns                     { width: 460px; }
+        .container .eleven.columns                  { width: 508px; }
+        .container .twelve.columns                  { width: 556px; }
+        .container .thirteen.columns                { width: 604px; }
+        .container .fourteen.columns                { width: 652px; }
+        .container .fifteen.columns                 { width: 700px; }
+        .container .sixteen.columns                 { width: 748px; }
+
+        .container .one-third.column                { width: 236px; }
+        .container .two-thirds.column               { width: 492px; }
+
+        /* Offsets */
+        .container .offset-by-one                   { padding-left: 48px; }
+        .container .offset-by-two                   { padding-left: 96px; }
+        .container .offset-by-three                 { padding-left: 144px; }
+        .container .offset-by-four                  { padding-left: 192px; }
+        .container .offset-by-five                  { padding-left: 240px; }
+        .container .offset-by-six                   { padding-left: 288px; }
+        .container .offset-by-seven                 { padding-left: 336px; }
+        .container .offset-by-eight                 { padding-left: 384px; }
+        .container .offset-by-nine                  { padding-left: 432px; }
+        .container .offset-by-ten                   { padding-left: 480px; }
+        .container .offset-by-eleven                { padding-left: 528px; }
+        .container .offset-by-twelve                { padding-left: 576px; }
+        .container .offset-by-thirteen              { padding-left: 624px; }
+        .container .offset-by-fourteen              { padding-left: 672px; }
+        .container .offset-by-fifteen               { padding-left: 720px; }
+    }
+
+
+/*  #Mobile (Portrait)
+================================================== */
+
+    /* Note: Design for a width of 320px */
+
+    @media only screen and (max-width: 767px) {
+        .container { width: 300px; }
+        .container .columns,
+        .container .column { margin: 0; }
+
+        .container .one.column,
+        .container .one.columns,
+        .container .two.columns,
+        .container .three.columns,
+        .container .four.columns,
+        .container .five.columns,
+        .container .six.columns,
+        .container .seven.columns,
+        .container .eight.columns,
+        .container .nine.columns,
+        .container .ten.columns,
+        .container .eleven.columns,
+        .container .twelve.columns,
+        .container .thirteen.columns,
+        .container .fourteen.columns,
+        .container .fifteen.columns,
+        .container .sixteen.columns,
+        .container .one-third.column,
+        .container .two-thirds.column  { width: 300px; }
+
+        /* Offsets */
+        .container .offset-by-one,
+        .container .offset-by-two,
+        .container .offset-by-three,
+        .container .offset-by-four,
+        .container .offset-by-five,
+        .container .offset-by-six,
+        .container .offset-by-seven,
+        .container .offset-by-eight,
+        .container .offset-by-nine,
+        .container .offset-by-ten,
+        .container .offset-by-eleven,
+        .container .offset-by-twelve,
+        .container .offset-by-thirteen,
+        .container .offset-by-fourteen,
+        .container .offset-by-fifteen { padding-left: 0; }
+
+    }
+
+
+/* #Mobile (Landscape)
+================================================== */
+
+    /* Note: Design for a width of 480px */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        .container { width: 420px; }
+        .container .columns,
+        .container .column { margin: 0; }
+
+        .container .one.column,
+        .container .one.columns,
+        .container .two.columns,
+        .container .three.columns,
+        .container .four.columns,
+        .container .five.columns,
+        .container .six.columns,
+        .container .seven.columns,
+        .container .eight.columns,
+        .container .nine.columns,
+        .container .ten.columns,
+        .container .eleven.columns,
+        .container .twelve.columns,
+        .container .thirteen.columns,
+        .container .fourteen.columns,
+        .container .fifteen.columns,
+        .container .sixteen.columns,
+        .container .one-third.column,
+        .container .two-thirds.column { width: 420px; }
+    }
+
+
+/* #Clearing
+================================================== */
+
+    /* Self Clearing Goodness */
+    .container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+    /* Use clearfix class on parent to clear nested columns,
+    or wrap each row of columns in a <div class="row"> */
+    .clearfix:before,
+    .clearfix:after,
+    .row:before,
+    .row:after {
+      content: '\0020';
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0; }
+    .row:after,
+    .clearfix:after {
+      clear: both; }
+    .row,
+    .clearfix {
+      zoom: 1; }
+
+    /* You can also use a <br class="clear" /> to clear columns */
+    .clear {
+      clear: both;
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
