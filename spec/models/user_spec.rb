@@ -42,7 +42,7 @@ describe User do
 
   it 'has the ability to unblock a user' do
     user1.unblock(user2)
-    expect(user2.blocked_users.include? user2).to eq(false)
+    expect(user1.blocked_users.include? user2).to eq(false)
   end
 
 end#end user
