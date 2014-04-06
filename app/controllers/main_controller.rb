@@ -5,7 +5,7 @@ class MainController < ApplicationController
   end
 
   def welcome
-    if current_user !=nil
+    if current_user
     @user=User.find(session[:user_id])
     @friends=@user.friends
     @comments=Comment.all

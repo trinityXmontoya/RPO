@@ -10,27 +10,28 @@
 
 <% if current_user != @user %>
 
-  <% if !@user.blocked_users.include? current_user %>
+  <% unless @user.blocked_users.include? current_user %>
 
-    <% if !(current_user.friends.include? @user) %>
-      <%= form_tag(user_follow_path(@user)) do%>
-      <%= submit_tag ("Follow")  %>
+    <% if current_user.friends.include? @user %>
+      <%= form_tag(user_unfollow_path(@user)) do%>
+      <%= submit_tag ("Unollow")  %>
       <% end %>
     <% else %>
-      <%= form_tag(user_unfollow_path(@user)) do %>
-      <%= submit_tag ("Unfollow") %>
+      <%= form_tag(user_follow_path(@user)) do %>
+      <%= submit_tag ("Follow") %>
       <% end %>
     <% end %>
 
-    <% if !current_user.blocked_users.include? @user %>
-      <%= form_tag(user_block_path(@user)) do %>
-      <%= submit_tag ("Block") %>
-      <% end %>
-    <% else %>
+    <% if current_user.blocked_users.include? @user %>
       <%= form_tag(user_unblock_path(@user)) do%>
       <%= submit_tag ("Unblock") %>
       <% end %>
+    <% else %>
+      <%= form_tag(user_block_path(@user)) do %>
+      <%= submit_tag ("Block") %>
+      <% end %>
     <% end %>
+
   <% end %>
 
 <% end %>

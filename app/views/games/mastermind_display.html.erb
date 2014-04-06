@@ -10,7 +10,7 @@
 <% end %>
 
 <br>
-<% if !$guesses.empty? %>
+<% unless $guesses.empty? %>
 <% $guesses.each do |guess| %>
 <%= content_tag :div, class: "game_1_guess_circle", style: "background-color: #{guess}" do %>
 <% end %>
@@ -19,7 +19,7 @@
 <br>
 
 
-<% if !flash[:win_msg] %>
+<% unless flash[:win_msg] %>
 <%= flash[:color] %>
 <br>
 <%= flash[:position] %>
