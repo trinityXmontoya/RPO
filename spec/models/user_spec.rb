@@ -3,6 +3,7 @@ require 'spec_helper'
 describe User do
 
   subject(:user1){User.new(id:10,username:'snoopdog',email:'snoopdog@gmail.com', password:'snoopy7', password_confirmation:'snoopy7',photo_url: "http://www.biography.com/imported/images/Biography/Images/Profiles/S/Snoop-Dogg-197052-1-402.jpg",time_played:10,character_id:1,level_id:1)}
+  subject(:user2){User.new(id:11,username:'loopdog',email:'loopdog@gmail.com', password:'looopy7', password_confirmation:'looopy7',photo_url: "looopy.jpg",time_played:10,character_id:1,level_id:1)}
   subject(:level1){Level.new(id:10,name:"Blade Runner")}
   subject(:character1){Character.new(id:10,name:'Parzival',photo_url:'http://th03.deviantart.net/fs70/PRE/i/2013/205/8/1/parzival_by_alexiel1910-d6evrcw.png',skill:'code')}
   subject(:game1){Game.new(id:10, name: 'Mastermind',photo_url:'http://www.thegrosslife.com/wp-content/uploads/2009/12/mastermind.jpg',points:20)}
@@ -25,6 +26,8 @@ describe User do
 
 
   it 'has the ability to follow a user' do
+    user1.follow(user2)
+    expect(user1.friends.include? user2).to eq(true)
   end
 
   it 'has the ability to unfollow a user' do
