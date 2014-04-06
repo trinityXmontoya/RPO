@@ -9,8 +9,8 @@ class MainController < ApplicationController
     @user=User.find(session[:user_id])
     @friends=@user.friends
     @comments=Comment.all
-  # else
-  #   redirect_to page
+  else
+    redirect_to login_path
    end
   end
 
