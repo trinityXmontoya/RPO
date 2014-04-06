@@ -31,9 +31,13 @@ describe User do
   end
 
   it 'has the ability to unfollow a user' do
+    user1.unfollow(user2)
+    expect(user1.friends.include? user2).to eq(false)
   end
 
   it 'has the ability to block a user' do
+    user1.block(user2)
+    expect(user2.blocked_users.include? user2).to eq(true)
   end
 
   it 'has the ability to unblock a user' do
