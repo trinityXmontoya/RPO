@@ -24,7 +24,8 @@ class User < ActiveRecord::Base
 
   #calculate user's total score based on games played
   def calculate_score
-    score=0
+    #set default user score value to 0 in the database but to prevent any errors and remove database dependencies i am including this line in the model as well
+    score || = 0
     self.games.each do |game|
       score+=game.points
     end
@@ -33,12 +34,7 @@ class User < ActiveRecord::Base
 
   #calculates percentage of character story completed by user
   def character_percent_complete(character)
-    level_total=[]
-     self.levels.each do |level|
-        if character.levels.include? level
-          level_total<<level
-        end
-      end
+    level_total=self.levels.select{|level| character.levels.include?(level) }
     return (level_total.length/7.0*100).round
   end
 
