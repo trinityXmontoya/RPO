@@ -16,7 +16,7 @@
 <%= form_tag(mastermind_guess_path, method:'post') do %>
 
 <% while i<@circles.length %>
-<%= select_tag "guess#{i}", options_for_select($colors.each {|color| color})  %>
+<%= select_tag "guess#{i}", options_for_select(@colors.each {|color| color})  %>
 <% i+=1 %>
 <% end %>
 
