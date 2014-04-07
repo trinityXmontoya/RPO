@@ -13,44 +13,50 @@ end
 def mastermind_begin
   @user=current_user
   @game=Game.find(1)
-  @method="mastermind"
-  @game_load=@game.method(@method).call
   @level=Level.find(@user.level_id)
-  @circles=@game.circles
-  $colors=@game.colors
-  $guesses=[]
-  $history=[]
+
+  method="mastermind"
+  @game.method(method).call
+
+  @colors=@game.colors
+
+  session[:circles]=@game.circles
+  @circles=session[:circles]
+
+  session[:guesses]=@game.guesses
+
 end
 
 def mastermind_guess
   @game=Game.find(1)
-  @color1=params[:color0]
-  @color2=params[:color1]
-  @color3=params[:color2]
-  @color4=params[:color3]
-  $circles=[]
-  $circles << @color1 << @color2 << @color3 << @color4
-  @guess1=params[:guess0]
-  @guess2=params[:guess1]
-  @guess3=params[:guess2]
-  @guess4=params[:guess3]
-  $guesses << @guess1 << @guess2 << @guess3 << @guess4
+  method="mastermind"
+  @game.method(method).call
+
+  @guesses=session[:guesses]
+  @circles=session[:circles]
+
+  guess1=params[:guess0]
+  guess2=params[:guess1]
+  guess3=params[:guess2]
+  guess4=params[:guess3]
+  @guesses << guess1 << guess2 << guess3 << guess4
+
   correct_color=0
   correct_position=0
   enemy=Enemy.find(current_user.character_id).name
-  if $guesses.last(4) == $circles
+  if @guesses.last(4) == @circles
     flash[:win_msg]="Success! You've solved it and defeated #{enemy}!"
     redirect_to mastermind_display_path
 
-  elsif $guesses.length > 20
+  elsif @guesses.length > 20
     flash[:notice]="You have taken too many turns and #{enemy} has won. Try again."
     redirect_to mastermind_begin_path
 
-  elsif $guesses.last(4) != $circles
-    c=$circles.collect{|x|x}
-    g=$guesses.last(4).collect{|x|x}
+  elsif @guesses.last(4) != @circles
+    c=@circles.collect{|x|x}
+    g=@guesses.last(4).collect{|x|x}
     i=0
-    while i < $circles.length
+    while i < @circles.length
       if g[i]==c[i]
         correct_position+=1
       end
@@ -74,6 +80,12 @@ end
 def mastermind_display
   @level=Level.find(current_user.level_id)
   @game=Game.find(1)
+  method="mastermind"
+  @game.method(method).call
+  @colors=@game.colors
+  @guesses=session[:guesses]
+  @circles=session[:circles]
+
 end
 
 def tic_tac_toe_begin
