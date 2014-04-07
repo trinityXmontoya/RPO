@@ -19,6 +19,34 @@ class Game < ActiveRecord::Base
     @history=[]
   end
 
+  def mastermind_evaluate(guesses,circles)
+    correct_color=0
+    correct_position=0
+
+    if guesses.last(4) == circles
+      return :success
+    elsif guesses.length > 20
+      return :too_many_tries
+    elsif guesses.last(4) != circles
+      c=circles.collect{|x|x}
+      g=guesses.last(4).collect{|x|x}
+      i=0
+        while i < circles.length
+            if g[i]==c[i]
+              correct_position+=1
+            end
+          i+=1
+        end
+      g.each do |x|
+          if c.include?x
+          correct_color+=1
+          c.delete_at c.index(x)
+          end
+        end
+        return correct_color,correct_position
+    end
+  end
+
 
   def game_2
     return "game 2"
