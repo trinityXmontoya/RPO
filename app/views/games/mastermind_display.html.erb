@@ -4,14 +4,14 @@
 <div class="eight columns offset-by-three">
 <div class="seven columns">
 <p class="errors"><%= flash[:notice] %></p>
-<% $circles.each do %>
+<% @circles.each do %>
 <%= content_tag :div, class: "game_1_circle" do %>
 <% end %>
 <% end %>
 
 <br>
-<% unless $guesses.empty? %>
-<% $guesses.each do |guess| %>
+<% unless @guesses.empty? %>
+<% @guesses.each do |guess| %>
 <%= content_tag :div, class: "game_1_guess_circle", style: "background-color: #{guess}" do %>
 <% end %>
 <% end %>
@@ -28,14 +28,14 @@
 <% i=0 %>
 <%= form_tag(mastermind_guess_path, method:'post') do %>
 
-<% while i<$circles.length %>
-<%= select_tag "guess#{i}", options_for_select($colors.each do |color| color end),{ :class => 'game_1_select' }  %>
+<% while i<@circles.length %>
+<%= select_tag "guess#{i}", options_for_select(@colors.each do |color| color end),{ :class => 'game_1_select' }  %>
 <% i+=1 %>
 <% end %>
 
 <% i=0 %>
-<% while i<$circles.length %>
-<%= hidden_field_tag "color#{i}", $circles[i] %>
+<% while i<@circles.length %>
+<%= hidden_field_tag "color#{i}", @circles[i] %>
 <% i+=1 %>
 <% end %>
 <br>
