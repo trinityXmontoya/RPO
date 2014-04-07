@@ -32,49 +32,33 @@ def mastermind_guess
   method="mastermind"
   @game.method(method).call
 
+  enemy=Enemy.find(current_user.character_id).name
+
   @guesses=session[:guesses]
   @circles=session[:circles]
-
-  guess1=params[:guess0]
-  guess2=params[:guess1]
-  guess3=params[:guess2]
-  guess4=params[:guess3]
+    guess1=params[:guess0]
+    guess2=params[:guess1]
+    guess3=params[:guess2]
+    guess4=params[:guess3]
   @guesses << guess1 << guess2 << guess3 << guess4
 
-  correct_color=0
-  correct_position=0
-  enemy=Enemy.find(current_user.character_id).name
-  if @guesses.last(4) == @circles
+  result = @game.mastermind_evaluate(@guesses,@circles)
+  correct_color= result[0]
+  correct_position= result[1]
+  if result == :success
     flash[:win_msg]="Success! You've solved it and defeated #{enemy}!"
     redirect_to mastermind_display_path
-
-  elsif @guesses.length > 20
+  elsif result == :too_many_tries
     flash[:notice]="You have taken too many turns and #{enemy} has won. Try again."
     redirect_to mastermind_begin_path
-
-  elsif @guesses.last(4) != @circles
-    c=@circles.collect{|x|x}
-    g=@guesses.last(4).collect{|x|x}
-    i=0
-    while i < @circles.length
-      if g[i]==c[i]
-        correct_position+=1
-      end
-      i+=1
-    end
-    g.each do |x|
-      if c.include?x
-      correct_color+=1
-      c.delete_at c.index(x)
-      end
-    end
-
+  else
   @position="Correct Position:#{correct_position}"
   @color="Correct Colors:#{correct_color}"
   flash[:color]=@color
   flash[:position]=@position
-    redirect_to mastermind_display_path
+  redirect_to mastermind_display_path
   end
+
 end
 
 def mastermind_display
